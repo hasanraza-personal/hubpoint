@@ -1,18 +1,65 @@
-import { Box, Button, IconButton, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react';
+import { Box, Button, IconButton, Menu, MenuButton, MenuItem, MenuList, useToast } from '@chakra-ui/react';
 import React, { useContext } from 'react';
 import { Gear, PencilSquare, Trash, BoxArrowRight, BoxArrowInRight } from 'react-bootstrap-icons';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AlertContext } from '../../../context/AlertState';
 import LogoutImage from '../../../public/images/icon/logout-img.png';
+import DeleteImage from '../../../public/images/icon/delete-img.png';
+import axios from 'axios';
 
 const NavbarMenu = () => {
     const { openAlert, closeAlert, cancelAlertRef, setAlertImage, setAlertTitle, setAlertDesc, setAlertRButton, setAlertLButton } = useContext(AlertContext);
     const navigate = useNavigate();
-    let user = localStorage.getItem('user');
+    const toast = useToast();
+    let user = localStorage.getItem('accounthub-user');
 
     const handleFeedback = () => { }
-    const handleDeleteAccount = () => { }
 
+    const deleteAlert = () => {
+        openAlert();
+        setAlertImage(DeleteImage);
+        setAlertTitle('Delete Account');
+        setAlertDesc('Are you sure? You want to delete your account. All the data related to your account will be deleted. ' +
+            'This process is irreversible. Once you delete your account you cannot get your account or data back.');
+        setAlertLButton(<Button w='48%' ref={cancelAlertRef} onClick={closeAlert} _focusVisible={{ outline: 'none' }}>Cancel</Button>);
+        setAlertRButton(<Button w='48%' colorScheme='red' onClick={() => handleDeleteAccount()}>Delete Account</Button>);
+    }
+
+    const handleDeleteAccount = async () => {
+        try {
+            let response = await axios({
+                method: 'POST',
+                url: '/api/auth/deleteaccount',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'user-token': localStorage.getItem('accounthub-user-token')
+                },
+            });
+            setTimeout(() => {
+                closeAlert();
+                localStorage.removeItem('accounthub-user');
+                localStorage.removeItem('accounthub-user-token');
+                navigate('/home')
+                toast({
+                    position: 'top',
+                    title: response.data.msg,
+                    status: 'success',
+                    duration: 3000,
+                    isClosable: true,
+                });
+            }, 500)
+        } catch (err) {
+            toast({
+                position: 'top',
+                title: err.response.data.error,
+                status: 'error',
+                duration: 3000,
+                isClosable: true,
+            });
+        }
+    }
+
+    // Show alert before logout
     const logoutAlert = () => {
         openAlert();
         setAlertImage(LogoutImage);
@@ -22,9 +69,11 @@ const NavbarMenu = () => {
         setAlertRButton(<Button w='48%' colorScheme='red' onClick={() => handleLogout()}>Logout</Button>);
     }
 
+    // Logout user
     const handleLogout = () => {
         closeAlert();
-        localStorage.removeItem('user');
+        localStorage.removeItem('accounthub-user');
+        localStorage.removeItem('accounthub-user-token');
         navigate('/home');
     }
 
@@ -62,7 +111,7 @@ const NavbarMenu = () => {
                         Feedback
                     </MenuItem>
                     {user &&
-                        <MenuItem icon={<Trash />} onClick={handleDeleteAccount}>
+                        <MenuItem icon={<Trash />} onClick={deleteAlert}>
                             Delete account
                         </MenuItem>
                     }

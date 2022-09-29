@@ -16,20 +16,48 @@ const GoogleLogin = () => {
     const [login, setLogin] = useState(false);
 
 
-    const handleCallbackResponse = (response) => {
+    // Check if email exist after user clicked on Google button
+    const handleCallbackResponse = async (response) => {
         let googleObject = jwt_decode(response.credential)
-        // Display gender Box
-        setLogin(true);
 
-        let userObject = {
-            googleId: googleObject.sub,
-            email: googleObject.email,
-            username: googleObject.email.substring(0, googleObject.email.lastIndexOf("@")),
-            name: googleObject.name
+        try {
+            let response = await axios({
+                method: 'POST',
+                url: '/api/auth/login',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                data: { email: googleObject.email }
+            });
+            // Check if account exist or not
+            if (response.data.account === 1) {
+                localStorage.setItem('accounthub-user', JSON.stringify(response.data.user));
+                localStorage.setItem('accounthub-user-token', response.data.authToken);
+                console.log('response.data.authToken: ', response.data.authToken);
+                navigate('/profile');
+            } else {
+                // Display gender Box
+                setLogin(true);
+                let userObject = {
+                    googleId: googleObject.sub,
+                    email: googleObject.email,
+                    username: googleObject.email.substring(0, googleObject.email.lastIndexOf("@")),
+                    name: googleObject.name
+                }
+                sessionStorage.setItem("googleObject", JSON.stringify(userObject));
+            }
+        } catch (err) {
+            toast({
+                position: 'top',
+                title: err.response.data.error,
+                status: 'error',
+                duration: 3000,
+                isClosable: true,
+            });
         }
-        sessionStorage.setItem("googleObject", JSON.stringify(userObject));
     }
 
+    // If error occured after user clicked on Google button 
     const handleError = () => {
         toast({
             position: 'top',
@@ -41,6 +69,7 @@ const GoogleLogin = () => {
         navigate('/login')
     }
 
+    // This function runs after handleCallbackResponse, if user does not exist 
     const handleSave = async () => {
         if (gender === '') {
             toast({
@@ -57,22 +86,18 @@ const GoogleLogin = () => {
         try {
             let response = await axios({
                 method: 'POST',
-                url: '/api/auth/login',
+                url: '/api/auth/signup',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 data: { googleUser: JSON.parse(sessionStorage.getItem('googleObject')), gender: gender }
             });
-            localStorage.setItem('user', JSON.stringify(response.data.userData));
-
-            if (response.data.account === 'new') {
-                setTimeout(() => {
-                    setLoading(false);
-                    navigate('/profile');
-                }, 1000)
-            } else {
+            localStorage.setItem('accounthub-user', JSON.stringify(response.data.user));
+            localStorage.setItem('accounthub-user-token', response.data.authToken);
+            setTimeout(() => {
+                setLoading(false);
                 navigate('/profile');
-            }
+            }, 1000)
         } catch (err) {
             toast({
                 position: 'top',

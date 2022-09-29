@@ -12,7 +12,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <ChakraProvider>
-        <GoogleOAuthProvider clientId='223962760511-a3o5rcgo65ed30bu36psho4v8r977kn4.apps.googleusercontent.com'>
+        <GoogleOAuthProvider clientId='727947435835-jla9q6j0dmnntn8u9u53uioj6c5bhc42.apps.googleusercontent.com'>
           <App />
         </GoogleOAuthProvider>
       </ChakraProvider>
