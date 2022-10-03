@@ -2,16 +2,8 @@ const express = require('express');
 const router = express.Router();
 const { body, validationResult } = require('express-validator');
 const userModel = require('../models/User');
-const sharp = require('sharp');
-const formidable = require('formidable');
 const path = require('path');
-const fs = require('fs');
-const maleAvatars = require('../Avatar/maleAvatars');
-const femaleAvatars = require('../Avatar/femaleAvatars');
-const jwt = require('jsonwebtoken');
 const fetchUser = require('../middleware/FetchUser');
-
-const JWT_SECRET = process.env.JWT_SECRET_KEY;
 
 let APP_URL = ''
 if (process.env.APP_ENV === 'production') {
@@ -20,97 +12,7 @@ if (process.env.APP_ENV === 'production') {
     APP_URL = process.env.LOCAL_URL
 }
 
-const uploadPath = path.join(__dirname, '../public/images/profile_photo');
-
-// Route 1: Verify user using: POST '/api/auth/login';
-router.post('/login', async (req, res) => {
-    let success = false;
-    let account = 0;
-    let authToken = null;
-
-    try {
-        let user = await userModel.findOne({ email: req.body.email });
-        if (user) {
-            account = 1;
-
-            // Store user id in jsonwebtoken
-            let data = {
-                user: {
-                    id: user.id
-                }
-            }
-            authToken = jwt.sign(data, JWT_SECRET);
-
-            user = {
-                email: user.email,
-                username: user.username,
-                name: user.name,
-                photo: user.photo
-            }
-        }
-        success = true;
-        res.json({ success, account, user, authToken, msg: 'Logged in successfull' });
-    } catch (err) {
-        return res.status(400).json({ success, error: 'Something went wrong. Please try again' });
-    }
-});
-
-
-// Route 2: Create user using: POST '/api/auth/create'
-router.post('/signup', async (req, res) => {
-    let newPhoto = new Date().getTime() + '.png';
-    let savePath = path.join(uploadPath, newPhoto);
-    let success = false;
-    let photo = null;
-    let avatarPath = null;
-
-    if (req.body.gender === 'male') {
-        photo = maleAvatars[Math.floor(Math.random() * maleAvatars.length)];
-    } else {
-        photo = femaleAvatars[Math.floor(Math.random() * femaleAvatars.length)];
-    }
-    avatarPath = path.join(__dirname, `../public/images/avatar/${req.body.gender}/${photo}`);
-
-    // Save user details in database
-    try {
-        let user = await userModel.create({
-            googleId: req.body.googleUser.googleId,
-            email: req.body.googleUser.email,
-            username: req.body.googleUser.username,
-            name: req.body.googleUser.name,
-            gender: req.body.gender,
-            photo: `${APP_URL}/images/profile_photo/${newPhoto}`
-        });
-        // Copy file from one folder to another
-        fs.copyFile(avatarPath, savePath, (err) => {
-            if (err) {
-                return res.status(400).json({ success, error: 'Something went wrong while copying. Please try again' });
-            }
-        });
-
-        // Store user id in jsonwebtoken
-        let data = {
-            user: {
-                id: user.id
-            }
-        }
-        const authToken = jwt.sign(data, JWT_SECRET);
-
-        user = {
-            email: user.email,
-            username: user.username,
-            name: user.name,
-            photo: user.photo
-        }
-        success = true;
-        res.json({ success, user, authToken, msg: 'Your account has been created' });
-    } catch (err) {
-        return res.status(400).json({ success, error: 'Something went wrong while saving. Please try again' });
-    }
-})
-
-
-// Route 5: Update user social account using: POST '/api/auth/updatesocialaccount'
+// Route 1: Update user social account using: POST '/api/social/updatesocialaccount'
 router.post('/updatesocialaccount', [
     body('facebook', 'Facebook username be less than 20 characters').trim().escape().isLength({ max: 20 }),
     body('instagram', 'Instagram must be less than 20 characters').trim().escape().isLength({ max: 20 }),
@@ -124,9 +26,16 @@ router.post('/updatesocialaccount', [
     body('pubg', 'PUBG id must be less than 20 characters').trim().escape().isLength({ max: 20 }),
     body('fortnite', 'Fortnite must be less than 20 characters').trim().escape().isLength({ max: 20 }),
     body('freefire', 'Freefire id must be less than 20 characters').trim().escape().isLength({ max: 20 }),
+    body('pokemongo', 'Pokemon Go id must be less than 20 characters').trim().escape().isLength({ max: 20 }),
 ], fetchUser, async (req, res) => {
     let success = false;
     let accounts = []
+
+    // If there are errors, return bad request and the errors
+    let errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ success, error: errors.errors[0].msg });
+    }
 
     // Facebook
     accounts.push({
@@ -224,6 +133,14 @@ router.post('/updatesocialaccount', [
         accountUsername: req.body.freefire
     })
 
+    // Peokemon GO
+    accounts.push({
+        accountName: 'Peokemon GO',
+        accountIcon: 'Controller',
+        fieldname: 'pokemongo',
+        accountUsername: req.body.pokemongo
+    })
+
     // Check if user has added account or not
     let accountCount = [];
     accounts.map((account) => {
@@ -247,7 +164,7 @@ router.post('/updatesocialaccount', [
     }
 })
 
-// Route 6: Get user social account using: POST '/api/auth/getsocialaccount'
+// Route 2: Get user social account using: POST '/api/social/getsocialaccount'
 router.get('/getsocialaccount', fetchUser, async (req, res) => {
     let success = false;
 

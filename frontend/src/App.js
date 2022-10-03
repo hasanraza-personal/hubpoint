@@ -10,6 +10,7 @@ import Profile from './pages/profile/Profile';
 import AddProfileAccount from './pages/profile/components/AddProfileAccount';
 import AlertState from './context/AlertState';
 import Alert from './components/global/Alert';
+import UserState from './context/UserContext';
 
 function App() {
 	const [mobileScreen] = useMediaQuery('(max-width: 850px)');
@@ -17,25 +18,27 @@ function App() {
 
 	return (
 		<>
-			<AlertState>
-				{location.pathname !== '/profile/addaccount' &&
-					<>
-						< Header />
-						{mobileScreen && <BottomNavbar />}
-						{/* <Card /> */}
-					</>
-				}
-				<Routes>
-					<Route path='/' element={<Index />} />
-					<Route path='/login' element={<Login />} />
-					<Route path='/profile' >
-						<Route index element={<Profile />} />
-						<Route path='addaccount' element={<AddProfileAccount />} />
-					</Route>
-				</Routes>
+			<UserState>
+				<AlertState>
+					{location.pathname !== '/profile/addaccount' &&
+						<>
+							< Header />
+							{mobileScreen && <BottomNavbar />}
+							{/* <Card /> */}
+						</>
+					}
+					<Routes>
+						<Route path='/' element={<Index />} />
+						<Route path='/login' element={<Login />} />
+						<Route path='/profile' >
+							<Route index element={<Profile />} />
+							<Route path='addaccount' element={<AddProfileAccount />} />
+						</Route>
+					</Routes>
 
-				<Alert />
-			</AlertState>
+					<Alert />
+				</AlertState>
+			</UserState>
 		</>
 	);
 }

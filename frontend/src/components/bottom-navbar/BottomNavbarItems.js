@@ -1,4 +1,4 @@
-import { House, Bag, PersonCircle, Search } from 'react-bootstrap-icons';
+import { House, Bag, Search } from 'react-bootstrap-icons';
 
 export const BottomNavbarItems = [
     {
@@ -12,9 +12,5 @@ export const BottomNavbarItems = [
     {
         icon: Search,
         url: '/search'
-    },
-    {
-        icon: PersonCircle,
-        url: '/profile'
-    },
+    }
 ]

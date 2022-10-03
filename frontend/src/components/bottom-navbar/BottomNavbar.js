@@ -1,9 +1,12 @@
-import { Flex, Icon } from '@chakra-ui/react';
-import React from 'react';
+import { Flex, Icon, Image } from '@chakra-ui/react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { BottomNavbarItems } from './BottomNavbarItems';
+import { PersonCircle } from 'react-bootstrap-icons';
+import { UserContext } from '../../context/UserContext';
 
 const BottomNavbar = () => {
+    const { globalphoto } = useContext(UserContext);
     return (
         <>
             <Flex
@@ -37,6 +40,25 @@ const BottomNavbar = () => {
                         <Icon as={item.icon} />
                     </Flex>
                 ))}
+
+                <Flex
+                    as={NavLink}
+                    to='/profile'
+                    h='100%'
+                    fontSize='24px'
+                    p='8px 10px'
+                    style={({ isActive }) => {
+                        return {
+                            color: isActive ? '#246bfd' : '',
+                            borderTop: isActive ? '3px solid #246bfd' : '',
+                            borderRadius: isActive ? '2px' : ''
+                        }
+                    }}
+                >
+                    {localStorage.getItem('hubpoint-user') ?
+                        <Image src={globalphoto} alt='profile photo' boxSize='26px' borderRadius='50%' objectFit='cover' /> :
+                        <Icon as={PersonCircle} />}
+                </Flex>
             </Flex>
         </>
     )

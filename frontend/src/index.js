@@ -6,10 +6,13 @@ import reportWebVitals from './reportWebVitals';
 import { ChakraProvider } from '@chakra-ui/react';
 import { BrowserRouter } from 'react-router-dom';
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import { HelmetProvider } from 'react-helmet-async';
+import './public/fonts/Montserrat-Regular.ttf';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
+  <HelmetProvider>
     <BrowserRouter>
       <ChakraProvider>
         <GoogleOAuthProvider clientId='727947435835-jla9q6j0dmnntn8u9u53uioj6c5bhc42.apps.googleusercontent.com'>
@@ -17,7 +20,8 @@ root.render(
         </GoogleOAuthProvider>
       </ChakraProvider>
     </BrowserRouter>
-  </React.StrictMode>
+  </HelmetProvider>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

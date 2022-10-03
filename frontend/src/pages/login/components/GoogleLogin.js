@@ -1,13 +1,15 @@
 import { Box, Flex, Image, useMediaQuery, useToast } from '@chakra-ui/react';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { GoogleLogin as GoogleAuthLogin } from '@react-oauth/google';
 import jwt_decode from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
 import GenderComponent from './GenderComponent';
 import LoginImage from '../../../public/images/svg/login-photo.svg';
 import axios from 'axios';
+import { UserContext } from '../../../context/UserContext';
 
 const GoogleLogin = () => {
+    const { setGlobalname, setGlobalusername, setGlobalphoto } = useContext(UserContext);
     const [mobileScreen] = useMediaQuery('(max-width: 850px)');
     const navigate = useNavigate();
     const toast = useToast();
@@ -31,9 +33,11 @@ const GoogleLogin = () => {
             });
             // Check if account exist or not
             if (response.data.account === 1) {
-                localStorage.setItem('accounthub-user', JSON.stringify(response.data.user));
-                localStorage.setItem('accounthub-user-token', response.data.authToken);
-                console.log('response.data.authToken: ', response.data.authToken);
+                localStorage.setItem('hubpoint-user', JSON.stringify(response.data.user));
+                localStorage.setItem('hubpoint-user-token', response.data.authToken);
+                setGlobalname(response.data.user.name);
+                setGlobalusername(response.data.user.username);
+                setGlobalphoto(response.data.user.photo);
                 navigate('/profile');
             } else {
                 // Display gender Box
@@ -92,8 +96,11 @@ const GoogleLogin = () => {
                 },
                 data: { googleUser: JSON.parse(sessionStorage.getItem('googleObject')), gender: gender }
             });
-            localStorage.setItem('accounthub-user', JSON.stringify(response.data.user));
-            localStorage.setItem('accounthub-user-token', response.data.authToken);
+            localStorage.setItem('hubpoint-user', JSON.stringify(response.data.user));
+            localStorage.setItem('hubpoint-user-token', response.data.authToken);
+            setGlobalname(response.data.user.name);
+            setGlobalusername(response.data.user.username);
+            setGlobalphoto(response.data.user.photo);
             setTimeout(() => {
                 setLoading(false);
                 navigate('/profile');

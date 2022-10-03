@@ -26,6 +26,8 @@ app.use(express.static(__dirname + '/public'));
 
 // Available routes
 app.use('/api/auth', require('./routes/Authentication'));
+app.use('/api/profile', require('./routes/Profile'));
+app.use('/api/social', require('./routes/Social'));
 
 // app.get('/*', function (req, res) {
 //     res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));

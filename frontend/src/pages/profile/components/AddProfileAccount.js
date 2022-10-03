@@ -1,15 +1,16 @@
-import { Box, Button, Container, Flex, FormControl, Icon, Image, Input, Modal, ModalContent, ModalOverlay, Stack, useDisclosure } from '@chakra-ui/react';
-import React, { useState } from 'react'
+import { Box, Button, Container, Flex, FormControl, Icon, Image, Input, Modal, ModalContent, ModalOverlay, Stack, useDisclosure, useToast } from '@chakra-ui/react';
+import React, { useEffect, useState } from 'react'
 import { Facebook, Instagram, Twitter, Linkedin, Snapchat, Youtube, Controller } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
 import AddAccountHeadImage from '../../../public/images/icon/add-account-head-img.png';
 import ImageLoader from '../../../public/images/gif/qr-loader.gif'
 import SuccessImage from '../../../public/images/icon/success.png'
+import axios from 'axios';
 
 const AddProfileAccount = () => {
     const { isOpen: isLoaderOpen, onOpen: openLoader, onClose: closeLoader } = useDisclosure();
     const { isOpen: isSuccessOpen, onOpen: openSuccess, onClose: closeSuccess } = useDisclosure();
-
+    const toast = useToast();
     const [credentials, setCredentials] = useState({
         facebook: '',
         instagram: '',
@@ -21,7 +22,9 @@ const AddProfileAccount = () => {
         coc: '',
         minecraft: '',
         pubg: '',
-        fortnite: ''
+        fortnite: '',
+        freefire: '',
+        pokemongo: ''
     })
 
     const fields = [
@@ -91,11 +94,11 @@ const AddProfileAccount = () => {
         },
         {
             icon: Controller,
-            fieldName: 'Minecraft',
-            name: 'minecraft',
-            value: credentials.minecraft,
+            fieldName: 'Pokemon GO',
+            name: 'pokemongo',
+            value: credentials.pokemongo,
             color: '#1D7C48',
-            placeholder: 'Your Minecraft id'
+            placeholder: 'Your Pokemon Go id'
         },
         {
             icon: Controller,
@@ -115,12 +118,20 @@ const AddProfileAccount = () => {
         },
         {
             icon: Controller,
+            fieldName: 'Minecraft',
+            name: 'minecraft',
+            value: credentials.minecraft,
+            color: '#1D7C48',
+            placeholder: 'Your Minecraft id'
+        },
+        {
+            icon: Controller,
             fieldName: 'Free Fire',
             name: 'freefire',
             value: credentials.freefire,
             color: '#1D7C48',
             placeholder: 'Your Free Fire id'
-        },
+        }
     ]
 
     const onChange = (e) => {
@@ -129,13 +140,69 @@ const AddProfileAccount = () => {
 
     const handleSubmit = async () => {
         openLoader();
-        setTimeout(() => {
-            closeLoader();
+        try {
+            await axios({
+                method: 'POST',
+                url: '/api/social/updatesocialaccount',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'user-token': localStorage.getItem('hubpoint-user-token')
+                },
+                data: credentials
+            });
             setTimeout(() => {
-                openSuccess();
-            }, 200)
-        }, 3000)
+                closeLoader();
+                setTimeout(() => {
+                    openSuccess();
+                }, 500)
+            }, 3000)
+        } catch (err) {
+            closeLoader();
+            toast({
+                position: 'top',
+                title: err.response.data.error,
+                status: 'error',
+                duration: 3000,
+                isClosable: true,
+            });
+        }
     }
+
+    const getAccounts = async () => {
+        try {
+            let response = await axios({
+                method: 'GET',
+                url: '/api/social/getsocialaccount',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'user-token': localStorage.getItem('hubpoint-user-token')
+                },
+            });
+            let data = response.data.userAccount.accounts;
+
+            if (data.length > 0) {
+                let accounts = {};
+                // eslint-disable-next-line
+                data.map((account) => {
+                    accounts[account.fieldname] = account.accountUsername;
+                })
+                setCredentials(accounts)
+            }
+        } catch (err) {
+            toast({
+                position: 'top',
+                title: err.response.data.error,
+                status: 'error',
+                duration: 3000,
+                isClosable: true,
+            });
+        }
+    }
+
+    useEffect(() => {
+        getAccounts();
+        // eslint-disable-next-line
+    }, [closeSuccess])
 
     return (
         <>
@@ -167,7 +234,7 @@ const AddProfileAccount = () => {
                             <Box fontSize='1.2rem' textAlign='center' lineHeight='normal'>Your QR Code has been successfully generated</Box>
                         </Flex>
                         <Box w='100%' mt='20px'>
-                            <Button as={Link} to='/profile' w='100%' bg='#246bfd' color='#fff'>Close</Button>
+                            <Button as={Link} to='/profile' w='100%' bg='#246bfd' color='#fff' _hover={{ color: '#000', bg: '#fff', border: '1px solid #000' }}>Close</Button>
                         </Box>
                     </Flex>
                 </ModalContent>
@@ -197,10 +264,6 @@ const AddProfileAccount = () => {
                             )
                         })}
                     </Stack>
-
-                    <Flex>
-                        <Box>Add Game Id</Box>
-                    </Flex>
 
                     <Flex w='100%' justifyContent='space-between' mt='20px'>
                         <Button w='48%' as={Link} to='/profile'>Cancel</Button>

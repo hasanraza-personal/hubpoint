@@ -11,7 +11,7 @@ const NavbarMenu = () => {
     const { openAlert, closeAlert, cancelAlertRef, setAlertImage, setAlertTitle, setAlertDesc, setAlertRButton, setAlertLButton } = useContext(AlertContext);
     const navigate = useNavigate();
     const toast = useToast();
-    let user = localStorage.getItem('accounthub-user');
+    let user = localStorage.getItem('hubpoint-user');
 
     const handleFeedback = () => { }
 
@@ -29,16 +29,16 @@ const NavbarMenu = () => {
         try {
             let response = await axios({
                 method: 'POST',
-                url: '/api/auth/deleteaccount',
+                url: '/api/profile/deleteaccount',
                 headers: {
                     'Content-Type': 'application/json',
-                    'user-token': localStorage.getItem('accounthub-user-token')
+                    'user-token': localStorage.getItem('hubpoint-user-token')
                 },
             });
             setTimeout(() => {
                 closeAlert();
-                localStorage.removeItem('accounthub-user');
-                localStorage.removeItem('accounthub-user-token');
+                localStorage.removeItem('hubpoint-user');
+                localStorage.removeItem('hubpoint-user-token');
                 navigate('/home')
                 toast({
                     position: 'top',
@@ -72,8 +72,8 @@ const NavbarMenu = () => {
     // Logout user
     const handleLogout = () => {
         closeAlert();
-        localStorage.removeItem('accounthub-user');
-        localStorage.removeItem('accounthub-user-token');
+        localStorage.removeItem('hubpoint-user');
+        localStorage.removeItem('hubpoint-user-token');
         navigate('/home');
     }
 

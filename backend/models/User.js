@@ -30,9 +30,15 @@ const UserSchema = new mongoose.Schema({
             accountName: {
                 type: String
             },
-            accountId: {
+            accountIcon: {
+                type: String,
+            },
+            fieldname: {
                 type: String
-            }
+            },
+            accountUsername: {
+                type: String
+            },
         }
     ],
     isPublic: {
