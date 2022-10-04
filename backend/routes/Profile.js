@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const { body, validationResult } = require('express-validator');
 const userModel = require('../models/User');
 const sharp = require('sharp');
 const formidable = require('formidable');
@@ -59,20 +58,10 @@ router.get('/getuser', fetchUser, async (req, res) => {
 
 
 // Route 3: Update user profile using: POST '/api/profile/updateprofile'
-router.post('/updateprofile', [
-    body('name', 'Please provide your name').trim().not().isEmpty().escape().isLength({ max: 20 }),
-    body('username', 'Please provide your username').trim().not().isEmpty().escape().isLength({ max: 15 }),
-    body('gender', 'Please provide your gender').trim().not().isEmpty().escape().isLength({ max: 15 }),
-], fetchUser, async (req, res) => {
+router.post('/updateprofile', fetchUser, async (req, res) => {
     let newPhoto = new Date().getTime() + '.png';
     let savePath = path.join(uploadPath, newPhoto);
     let success = false;
-
-    // If there are errors, return bad request and the errors
-    let errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        return res.status(400).json({ success, error: errors.errors[0].msg });
-    }
 
     let form = new formidable.IncomingForm();
     form.parse(req, async (err, fields, files) => {
@@ -130,6 +119,18 @@ router.post('/updateprofile', [
         }
 
         // Update gender, name, username
+        if(fields.name === ''){
+            return res.status(400).json({ success, error: 'Name cannot be blank' });
+        }
+
+        if(fields.username === ''){
+            return res.status(400).json({ success, error: 'Username cannot be blank' });
+        }
+
+        if(fields.gender === ''){
+            return res.status(400).json({ success, error: 'Please provide your gender' });
+        }
+
         try {
             let newUser = await userModel.findByIdAndUpdate((req.user.id), {
                 name: fields.name,

@@ -66,6 +66,12 @@ code {
   outline: none;
 }
 
+button-hover{
+  border: 1px solid #246bfd;
+  color: #fff;
+  background-color: #246bfd;
+}
+
 .button-hover:hover {
   border: 1px solid #212121;
   color: #212121;

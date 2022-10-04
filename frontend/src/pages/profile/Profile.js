@@ -1,11 +1,10 @@
-import { Box, Button, Container, Flex, Icon, Image, useDisclosure, useMediaQuery, useToast } from '@chakra-ui/react';
+import { Box, Button, Container, Flex, Icon, Image, useMediaQuery, useToast } from '@chakra-ui/react';
 import React, { useContext, useEffect, useState } from 'react';
 import CardHead from '../../components/card/components/CardHead';
 import CardAccount from '../../components/card/components/CardAccount';
 import { Pencil, PlusCircle } from 'react-bootstrap-icons';
 import SocialQRCode from './components/SocialQRCode';
 import ProfileStatus from './components/ProfileStatus';
-import ProfileHeadModal from './components/ProfileHeadModal';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
 import axios from 'axios';
@@ -14,7 +13,6 @@ import AccessDeniedImage from '../../public/images/svg/access-denied-img.svg';
 
 const Profile = () => {
     const [mobileScreen] = useMediaQuery('(max-width: 850px)');
-    const { isOpen: isHeadOpen, onOpen: openHead, onClose: closeHead } = useDisclosure();
     const { globalname, globalusername, globalphoto } = useContext(UserContext);
     const toast = useToast();
     const [accounts, setAccounts] = useState([])
@@ -60,14 +58,13 @@ const Profile = () => {
             </Helmet>
 
             {user ? <>
-                <ProfileHeadModal isHeadOpen={isHeadOpen} closeHead={closeHead} />
                 <Container mt='5px'>
                     {/* Account Status */}
                     <ProfileStatus />
 
                     {/* Card Head */}
                     <Container shadow='xs' bg='#fff' mt='10px' p='5px' borderRadius='20px'>
-                        <Flex w='100%' alignItems='center' px='15px' color='#246bfd' justifyContent='end' fontWeight='bold' cursor='pointer' onClick={openHead}>
+                        <Flex as={Link} to='editprofile' w='100%' alignItems='center' px='15px' color='#246bfd' justifyContent='end' fontWeight='bold' cursor='pointer'>
                             <Icon as={Pencil} />
                             <Box textDecoration='underline' ml='2px'>edit</Box>
                         </Flex>
