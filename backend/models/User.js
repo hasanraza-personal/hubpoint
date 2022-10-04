@@ -45,6 +45,14 @@ const UserSchema = new mongoose.Schema({
         type: Boolean,
         default: true
     },
+    isSearchable: {
+        type: Boolean,
+        default: true
+    },
+    isLocked: {
+        type: Boolean,
+        default: false
+    },
     isBlock: {
         type: Boolean,
         default: false

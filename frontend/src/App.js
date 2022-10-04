@@ -12,6 +12,7 @@ import AlertState from './context/AlertState';
 import Alert from './components/global/Alert';
 import UserState from './context/UserContext';
 import EditProfileHead from './pages/profile/components/EditProfileHead';
+import Settings from './pages/settings/Settings';
 
 function App() {
 	const [mobileScreen] = useMediaQuery('(max-width: 850px)');
@@ -36,6 +37,7 @@ function App() {
 							<Route path='addaccount' element={<AddProfileAccount />} />
 							<Route path='editprofile' element={<EditProfileHead />} />
 						</Route>
+						<Route path='/settings' element={<Settings /> } />
 					</Routes>
 
 					<Alert />

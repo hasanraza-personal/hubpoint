@@ -9,6 +9,7 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import { HelmetProvider } from 'react-helmet-async';
 import './public/fonts/Montserrat-Regular.ttf';
 import ScrollToTop from './ScrollToTop';
+import './public/fonts/SFPro.ttf';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

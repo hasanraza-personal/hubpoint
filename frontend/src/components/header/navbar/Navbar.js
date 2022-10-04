@@ -1,6 +1,7 @@
 import { Box, Flex, Icon, useMediaQuery } from '@chakra-ui/react';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Gear } from 'react-bootstrap-icons';
+import { Link, NavLink } from 'react-router-dom';
 import { NavbarItems } from './NavbarItems';
 import NavbarMenu from './NavbarMenu';
 
@@ -8,7 +9,7 @@ const Navbar = () => {
     const [mobileScreen] = useMediaQuery('(max-width: 850px)');
     return (
         <>
-            <Flex fontSize='1.2rem' px='10px'>
+            <Flex fontSize='1.2rem' px='10px' alignItems='center'>
                 {!mobileScreen &&
                     <>
                         {NavbarItems.map((item, index) => (
@@ -34,7 +35,19 @@ const Navbar = () => {
                             </Flex>
                         ))}
                     </>}
-                <NavbarMenu />
+                {/* <NavbarMenu /> */}
+                <Flex
+                    as={Link}
+                    to='/settings'
+                    alignItems='center'
+                    mr='5px'
+                    p='3px 8px'
+                >
+                    <Icon as={Gear} mr='5px' fontSize='1.5rem' />
+                </Flex>
+                {/* <Box as={Link} to='/settings'>
+                    <Icon as={Gear} fontSize='1.5rem' />
+                </Box> */}
             </Flex>
         </>
     )
