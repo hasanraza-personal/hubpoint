@@ -18,7 +18,7 @@ const SocialQRCode = () => {
         try {
             let response = await axios({
                 method: 'GET',
-                url: '/api/auth/getsocialaccount',
+                url: '/api/social/getsocialaccount',
                 headers: {
                     'Content-Type': 'application/json',
                     'user-token': localStorage.getItem('hubpoint-user-token')
@@ -88,8 +88,7 @@ const SocialQRCode = () => {
                         <Image src={imageQR} boxSize='250px' />
                     </Flex>
                     <Box lineHeight='normal' textAlign='center' color='#a09e9e'>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Minima voluptatem similique quae recusandae omnis voluptatum suscipit,
+                        Scan the above QR Code or share the above link to your friends
                     </Box>
                     <Box w='100%' mt='20px'>
                         <Button

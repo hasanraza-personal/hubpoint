@@ -1,4 +1,4 @@
-import { Box, Flex, Icon, Stack, useToast } from '@chakra-ui/react';
+import { Box, Flex, Icon, useToast } from '@chakra-ui/react';
 import { Files, Facebook, Instagram, Twitter, Linkedin, Snapchat, Youtube, Controller } from 'react-bootstrap-icons';
 import React from 'react';
 

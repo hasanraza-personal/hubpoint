@@ -1,22 +1,34 @@
-import { Box, Flex, Image, useMediaQuery, useToast } from '@chakra-ui/react';
+import { Box, Flex, Image, useDisclosure, useMediaQuery, useToast } from '@chakra-ui/react';
 import React, { useContext, useState } from 'react';
 import { GoogleLogin as GoogleAuthLogin } from '@react-oauth/google';
 import jwt_decode from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
-import GenderComponent from './GenderComponent';
 import LoginImage from '../../../public/images/svg/login-photo.svg';
 import axios from 'axios';
 import { UserContext } from '../../../context/UserContext';
+import UserDetailsModal from './UserDetailsModal';
 
 const GoogleLogin = () => {
     const { setGlobalname, setGlobalusername, setGlobalphoto } = useContext(UserContext);
     const [mobileScreen] = useMediaQuery('(max-width: 850px)');
     const navigate = useNavigate();
     const toast = useToast();
-    const [gender, setGender] = useState('');
+    const [credentials, setCredentials] = useState({ username: '', gender: '' })
     const [loading, setLoading] = useState(false);
-    const [login, setLogin] = useState(false);
+    const [signup, setSignup] = useState(false);
+    const { isOpen, onOpen, onClose } = useDisclosure()
 
+    // If error occured after user clicked on Google button 
+    const handleError = () => {
+        toast({
+            position: 'top',
+            title: 'Something went wrong. Please try again after sometime',
+            status: 'error',
+            duration: 3000,
+            isClosable: true,
+        });
+        navigate('/login')
+    }
 
     // Check if email exist after user clicked on Google button
     const handleCallbackResponse = async (response) => {
@@ -31,21 +43,16 @@ const GoogleLogin = () => {
                 },
                 data: { email: googleObject.email }
             });
-            // Check if account exist or not
-            if (response.data.account === 1) {
-                localStorage.setItem('hubpoint-user', JSON.stringify(response.data.user));
-                localStorage.setItem('hubpoint-user-token', response.data.authToken);
-                setGlobalname(response.data.user.name);
-                setGlobalusername(response.data.user.username);
-                setGlobalphoto(response.data.user.photo);
+            // If account exist redirect, if not open modal
+            if (response.data.loggedIn) {
+                setGlobalUser(response.data.user, response.data.authToken);
                 navigate('/profile');
             } else {
-                // Display gender Box
-                setLogin(true);
+                setSignup(true);
+                onOpen();
                 let userObject = {
                     googleId: googleObject.sub,
                     email: googleObject.email,
-                    username: googleObject.email.substring(0, googleObject.email.lastIndexOf("@")),
                     name: googleObject.name
                 }
                 sessionStorage.setItem("googleObject", JSON.stringify(userObject));
@@ -61,21 +68,20 @@ const GoogleLogin = () => {
         }
     }
 
-    // If error occured after user clicked on Google button 
-    const handleError = () => {
-        toast({
-            position: 'top',
-            title: 'Something went wrong. Please try again after sometime',
-            status: 'error',
-            duration: 3000,
-            isClosable: true,
-        });
-        navigate('/login')
-    }
-
     // This function runs after handleCallbackResponse, if user does not exist 
     const handleSave = async () => {
-        if (gender === '') {
+        if (credentials.username === '') {
+            toast({
+                position: 'top',
+                title: 'Username cannot be blank',
+                status: 'error',
+                duration: 3000,
+                isClosable: true,
+            });
+            return false;
+        }
+
+        if (credentials.gender === '') {
             toast({
                 position: 'top',
                 title: 'Please select your gender',
@@ -94,18 +100,20 @@ const GoogleLogin = () => {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                data: { googleUser: JSON.parse(sessionStorage.getItem('googleObject')), gender: gender }
+                data: {
+                    googleUser: JSON.parse(sessionStorage.getItem('googleObject')),
+                    username: credentials.username,
+                    gender: credentials.gender
+                }
             });
-            localStorage.setItem('hubpoint-user', JSON.stringify(response.data.user));
-            localStorage.setItem('hubpoint-user-token', response.data.authToken);
-            setGlobalname(response.data.user.name);
-            setGlobalusername(response.data.user.username);
-            setGlobalphoto(response.data.user.photo);
+            setGlobalUser(response.data.user, response.data.authToken);
             setTimeout(() => {
                 setLoading(false);
+                onClose();
                 navigate('/profile');
             }, 1000)
         } catch (err) {
+            setLoading(false);
             toast({
                 position: 'top',
                 title: err.response.data.error,
@@ -116,11 +124,18 @@ const GoogleLogin = () => {
         }
     }
 
+    const setGlobalUser = (user, token) => {
+        localStorage.setItem('hubpoint-user', JSON.stringify(user));
+        localStorage.setItem('hubpoint-user-token', token);
+        setGlobalname(user.name);
+        setGlobalusername(user.username);
+        setGlobalphoto(user.photo);
+    }
+
     return (
         <>
-            {login ?
-                <GenderComponent gender={gender} setGender={setGender} loading={loading} handleSave={handleSave} />
-                :
+            <UserDetailsModal isOpen={isOpen} credentials={credentials} setCredentials={setCredentials} loading={loading} handleSave={handleSave} />
+            {!signup &&
                 <>
                     <Flex justifyContent='center' pt={mobileScreen && '20px'}>
                         <Image src={LoginImage} alt='Index image' boxSize={mobileScreen ? '200px' : '400px'} />

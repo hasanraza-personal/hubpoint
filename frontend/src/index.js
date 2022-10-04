@@ -8,6 +8,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { HelmetProvider } from 'react-helmet-async';
 import './public/fonts/Montserrat-Regular.ttf';
+import ScrollToTop from './ScrollToTop';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,6 +16,7 @@ root.render(
   <HelmetProvider>
     <BrowserRouter>
       <ChakraProvider>
+        <ScrollToTop />
         <GoogleOAuthProvider clientId='727947435835-jla9q6j0dmnntn8u9u53uioj6c5bhc42.apps.googleusercontent.com'>
           <App />
         </GoogleOAuthProvider>
