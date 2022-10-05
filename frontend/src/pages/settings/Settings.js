@@ -33,8 +33,10 @@ const Settings = () => {
                     <Container shadow='xs' bg='#fff' mt='1px' p='5px' height={mobileScreen ? 'calc(100vh - 95px)' : 'calc(100vh - 55px)'}>
                         <Flex flexDirection='column' alignItems='center'>
                             <Box as={Image} src={AccessDeniedImage} boxSize={mobileScreen ? '250px' : '350px'} alt='Login image' />
-                            <Box fontWeight='bold' fontSize='1.6rem'>Access Denied</Box>
-                            <Box textAlign='center' lineHeight='normal' color='#6d6a6a' fontSize='15px'>Please login to view settings.</Box>
+                            <Box fontWeight='bold' fontSize='1.6rem'>Login Required</Box>
+                            <Box textAlign='center' lineHeight='normal' color='#6d6a6a' fontSize='15px'>
+                                Settings can be accessed by HUBPOINT users only
+                            </Box>
                             <Flex w='100%' mt='15px' justifyContent='center'>
                                 <Button as={Link} to='/login' w='40%' bg='#246bfd' color='#fff' className='button-hover'>Login</Button>
                             </Flex>

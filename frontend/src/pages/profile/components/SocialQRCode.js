@@ -9,7 +9,7 @@ const SocialQRCode = ({ name, username, photo }) => {
     const toast = useToast();
     const [account, setAccount] = useState(false);
     const { isOpen: isModalOpen, onOpen: openModal, onClose: closeModal } = useDisclosure();
-    const url = `https://hubpoint.in/${username}`
+    const url = `https://hubpoint.in//user${username}`
     const [imageQR, setImageQR] = useState();
 
     const getUserSocialAccount = async () => {
@@ -51,7 +51,7 @@ const SocialQRCode = ({ name, username, photo }) => {
     }
 
     const handleCopy = (username) => {
-        navigator.clipboard.writeText(`https://hubpoint.in/${username}`);
+        navigator.clipboard.writeText(`https://hubpoint.in/username/${username}`);
         toast({
             position: 'top',
             title: 'Link copied!',

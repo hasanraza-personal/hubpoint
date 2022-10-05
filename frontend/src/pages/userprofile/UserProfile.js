@@ -7,7 +7,9 @@ import CardHead from '../../components/card/components/CardHead';
 import CardAccount from '../../components/card/components/CardAccount';
 import SocialQRCode from '../profile/components/SocialQRCode';
 import ErrorImage from '../../public/images/svg/404-img.svg';
-import NotFoundImage from '../../public/images/svg/not-found-img.svg'
+import NotFoundImage from '../../public/images/svg/not-found-img.svg';
+import SocailImageAccount from '../../public/images/svg/socail-account-img.svg';
+import NotAccessIbleImage from '../../public/images/svg/not-accessible.svg';
 
 const UserProfile = () => {
     const reloadPage = () => {
@@ -40,37 +42,61 @@ const UserProfile = () => {
 
     return (
         <>
-            <Container mt='5px'>
+            <Container mt='5px' pb='55px'>
                 {data?.user.length > 0 ? <>
                     {data?.user.map((user, index) => (
                         <Box key={index}>
-                            {/* Card Head */}
-                            <Container shadow='xs' bg='#fff' mt='10px' p='5px' borderRadius='20px'>
-                                <CardHead name={user.name} username={user.username} photo={user.photo} />
-                                <Box lineHeight='normal' w='100%' textAlign='center' color='#696666' fontSize='.8rem' mb='5px'>
-                                    Share the above link to your friends or copy url from the brower and share it.
-                                </Box>
-                            </Container>
+                            {user.isLocked ? <>
+                                <Flex flexDirection='column' alignItems='center'>
+                                    <Image src={NotAccessIbleImage} alt='Not found' boxSize='300px' />
+                                    <Box textAlign='center' fontFamily='SFPro'>
+                                        <Box fontSize='1.2rem' fontWeight='bold'>Not Accessible!</Box>
+                                        <Box fontSize='1.0rem' color='#6d6a6a' lineHeight='normal'>
+                                            User has temporarily taken a brake
+                                        </Box>
+                                    </Box>
+                                </Flex>
+                            </> : <>
+                                {/* Card Head */}
+                                <Container shadow='xs' bg='#fff' mt='10px' p='5px' borderRadius='20px'>
+                                    <CardHead name={user.name} username={user.username} photo={user.photo} />
+                                    <Box lineHeight='normal' w='100%' textAlign='center' color='#696666' fontSize='.8rem' mb='5px'>
+                                        Share the above link to your friends or copy url from the brower and share it.
+                                    </Box>
+                                </Container>
 
-                            {/* Card Account */}
-                            <Container shadow='xs' bg='#fff' mt='10px' p='15px' borderRadius='20px' >
-                                <CardAccount accounts={user.accounts} />
-                            </Container>
+                                {user.accounts.length !== 0 ? <>
+                                    {/* Card Account */}
+                                    <Container shadow='xs' bg='#fff' mt='10px' p='15px' borderRadius='20px' >
+                                        <CardAccount accounts={user.accounts} />
+                                    </Container>
 
-                            {/* QR Code */}
-                            <SocialQRCode name={user.name} username={user.username} photo={user.photo} />
+                                    {/* QR Code */}
+                                    <SocialQRCode name={user.name} username={user.username} photo={user.photo} />
+                                </> : <>
+                                    <Flex flexDirection='column' alignItems='center'>
+                                        <Image src={SocailImageAccount} alt='Not found' boxSize='200px' />
+                                        <Box textAlign='center' fontFamily='SFPro' mt='5px'>
+                                            <Box fontSize='1.2rem' fontWeight='bold'>No Social Account Found!</Box>
+                                            <Box fontSize='1.0rem' color='#6d6a6a' lineHeight='normal'>
+                                                User has not added any of its social account
+                                            </Box>
+                                        </Box>
+                                    </Flex>
+                                </>}
+                            </>}
                         </Box>
                     ))}
                 </> : <>
-                        <Flex flexDirection='column' alignItems='center' mt='20px'>
-                            <Image src={NotFoundImage} alt='Not found' boxSize='250px' />
-                            <Box textAlign='center' fontFamily='SFPro' mt='10px'>
-                                <Box fontSize='1.6rem' fontWeight='bold'>User Not Found!</Box>
-                                <Box fontSize='1.1rem' color='#6d6a6a' lineHeight='normal'>
-                                    The user that you are looking for does not exist in our platform
-                                </Box>
+                    <Flex flexDirection='column' alignItems='center' mt='20px'>
+                        <Image src={NotFoundImage} alt='Not found' boxSize='250px' />
+                        <Box textAlign='center' fontFamily='SFPro' mt='10px'>
+                            <Box fontSize='1.6rem' fontWeight='bold'>User Not Found!</Box>
+                            <Box fontSize='1.1rem' color='#6d6a6a' lineHeight='normal'>
+                                The user that you are looking for does not exist
                             </Box>
-                        </Flex>
+                        </Box>
+                    </Flex>
                 </>}
             </Container>
         </>

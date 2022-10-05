@@ -10,9 +10,9 @@ const CardHead = ({ name, username, photo }) => {
 
     const handleShare = () => {
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-            setLink(`https://api.whatsapp.com/send?phone=&text=https://hubpoint.in/${username}`)
+            setLink(`https://api.whatsapp.com/send?phone=&text=https://hubpoint.in/user/${username}`)
         } else {
-            setLink(`https://web.whatsapp.com/send?phone=&text=https://hubpoint.in/${username}`)
+            setLink(`https://web.whatsapp.com/send?phone=&text=https://hubpoint.in/user/${username}`)
         }
     }
 
@@ -54,7 +54,7 @@ const CardHead = ({ name, username, photo }) => {
                 <Box as={Image} src={photo} boxSize='90px' borderRadius='50%' objectFit='cover' alt='profile photo' />
                 <Box fontWeight='bold' fontSize='1.4rem'>{name}</Box>
                 <Flex alignItems='center' flexWrap='wrap'>
-                    <Box fontWeight='bold' fontSize='1rem' mr='6px' overflow='auto'>hubpoint.in/{username}</Box>
+                    <Box fontWeight='bold' fontSize='1rem' mr='6px' overflow='auto'>hubpoint.in/user/{username}</Box>
                     <Icon as={ShareFill} cursor='pointer' onClick={OpenDrawer} />
                 </Flex>
             </Flex>
