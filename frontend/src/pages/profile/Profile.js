@@ -85,7 +85,7 @@ const Profile = () => {
                     </Container>
 
                     {/* QR Code */}
-                    <SocialQRCode />
+                    <SocialQRCode name={globalname} username={globalusername} photo={globalphoto} />
                 </Container>
             </> : <>
                 <Container shadow='xs' bg='#fff' mt='1px' p='5px' height={mobileScreen ? 'calc(100vh - 95px)' : 'calc(100vh - 55px)'}>

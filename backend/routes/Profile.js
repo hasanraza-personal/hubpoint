@@ -170,8 +170,6 @@ router.get('/getaccountstatus', fetchUser, async (req, res) => {
 // Route 5: Change profile visibility using: POST '/api/profile/changevisibility'
 router.post('/changestatus', fetchUser, async (req, res) => {
     let success = false;
-    console.log(req.body);
-    // let field = req.body.fieldname
 
     try {
         await userModel.findByIdAndUpdate(req.user.id, { [req.body.fieldname]: req.body.status });

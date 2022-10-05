@@ -34,7 +34,7 @@ const Settings = () => {
                         <Flex flexDirection='column' alignItems='center'>
                             <Box as={Image} src={AccessDeniedImage} boxSize={mobileScreen ? '250px' : '350px'} alt='Login image' />
                             <Box fontWeight='bold' fontSize='1.6rem'>Access Denied</Box>
-                            <Box textAlign='center' lineHeight='normal' color='#6d6a6a' fontSize='15px'>Please login to view your profile and generate QR Code for your all social account.</Box>
+                            <Box textAlign='center' lineHeight='normal' color='#6d6a6a' fontSize='15px'>Please login to view settings.</Box>
                             <Flex w='100%' mt='15px' justifyContent='center'>
                                 <Button as={Link} to='/login' w='40%' bg='#246bfd' color='#fff' className='button-hover'>Login</Button>
                             </Flex>

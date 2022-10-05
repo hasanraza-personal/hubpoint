@@ -10,20 +10,25 @@ import { HelmetProvider } from 'react-helmet-async';
 import './public/fonts/Montserrat-Regular.ttf';
 import ScrollToTop from './ScrollToTop';
 import './public/fonts/SFPro.ttf';
+import { QueryClientProvider, QueryClient } from "react-query";
+
+const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
   <HelmetProvider>
     <BrowserRouter>
-      <ChakraProvider>
-        <ScrollToTop />
-        <GoogleOAuthProvider clientId='727947435835-jla9q6j0dmnntn8u9u53uioj6c5bhc42.apps.googleusercontent.com'>
-          <App />
-        </GoogleOAuthProvider>
-      </ChakraProvider>
+      <QueryClientProvider client={queryClient}>
+        <ChakraProvider>
+          <ScrollToTop />
+          <GoogleOAuthProvider clientId='727947435835-jla9q6j0dmnntn8u9u53uioj6c5bhc42.apps.googleusercontent.com'>
+            <App />
+          </GoogleOAuthProvider>
+        </ChakraProvider>
+      </QueryClientProvider>
     </BrowserRouter>
-  </HelmetProvider>
+  </HelmetProvider >
   // </React.StrictMode>
 );
 

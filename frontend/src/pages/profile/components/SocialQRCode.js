@@ -1,17 +1,15 @@
 import { Box, Button, Container, Flex, Image, Modal, ModalContent, ModalOverlay, useDisclosure, useToast } from '@chakra-ui/react';
 import axios from 'axios';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import QRImage from '../../../public/images/svg/qr-code.svg';
 import QRCode from 'qrcode';
-import { UserContext } from '../../../context/UserContext';
 
-const SocialQRCode = () => {
-    const { globalusername, globalphoto, globalname } = useContext(UserContext);
+const SocialQRCode = ({ name, username, photo }) => {
     const toast = useToast();
     const [account, setAccount] = useState(false);
     const { isOpen: isModalOpen, onOpen: openModal, onClose: closeModal } = useDisclosure();
-    const url = `https://hubpoint.in/${globalusername}`
+    const url = `https://hubpoint.in/${username}`
     const [imageQR, setImageQR] = useState();
 
     const getUserSocialAccount = async () => {
@@ -75,12 +73,12 @@ const SocialQRCode = () => {
                 <ModalOverlay />
                 <ModalContent bg='#fff' p='20px'>
                     <Flex alignItems='center' flexDirection='column'>
-                        <Image src={globalphoto} boxSize='100px' borderRadius='50%' />
+                        <Image src={photo} boxSize='100px' borderRadius='50%' />
                         <Flex flexDirection='column' alignItems='center' lineHeight='normal' mt='10px'>
-                            <Box fontWeight='bold' fontSize='20px'>{globalname}</Box>
+                            <Box fontWeight='bold' fontSize='20px'>{name}</Box>
                             <Flex gap='5px'>
                                 <Box>{url}</Box>
-                                <Box color='#246bfd' cursor='pointer' onClick={() => handleCopy(globalusername)}>Copy</Box>
+                                <Box color='#246bfd' cursor='pointer' onClick={() => handleCopy(username)}>Copy</Box>
                             </Flex>
                         </Flex>
                     </Flex>
