@@ -13,6 +13,8 @@ import Alert from './components/global/Alert';
 import UserState from './context/UserContext';
 import EditProfileHead from './pages/profile/components/EditProfileHead';
 import Settings from './pages/settings/Settings';
+import TermsAndConditions from './pages/others/TermsAndConditions';
+import PrivacyPolicy from './pages/others/PrivacyPolicy';
 
 function App() {
 	const [mobileScreen] = useMediaQuery('(max-width: 850px)');
@@ -38,6 +40,9 @@ function App() {
 							<Route path='editprofile' element={<EditProfileHead />} />
 						</Route>
 						<Route path='/settings' element={<Settings /> } />
+
+						<Route path='/termsandconditions' element={<TermsAndConditions /> } />
+						<Route path='/privacypolicy' element={<PrivacyPolicy /> } />
 					</Routes>
 
 					<Alert />

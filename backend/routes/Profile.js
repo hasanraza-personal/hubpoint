@@ -119,15 +119,15 @@ router.post('/updateprofile', fetchUser, async (req, res) => {
         }
 
         // Update gender, name, username
-        if(fields.name === ''){
+        if (fields.name === '') {
             return res.status(400).json({ success, error: 'Name cannot be blank' });
         }
 
-        if(fields.username === ''){
+        if (fields.username === '') {
             return res.status(400).json({ success, error: 'Username cannot be blank' });
         }
 
-        if(fields.gender === ''){
+        if (fields.gender === '') {
             return res.status(400).json({ success, error: 'Please provide your gender' });
         }
 
@@ -152,12 +152,12 @@ router.post('/updateprofile', fetchUser, async (req, res) => {
 })
 
 
-// Route 4: Get profile visibility using: GET '/api/profile/getvisibility'
-router.get('/getvisibility', fetchUser, async (req, res) => {
+// Route 4: Get profile visibility using: GET '/api/profile/getaccountstatus'
+router.get('/getaccountstatus', fetchUser, async (req, res) => {
     let success = false;
 
     try {
-        let status = await userModel.findById(req.user.id).select('-_id isPublic');
+        let status = await userModel.findById(req.user.id).select('-_id isPublic isSearchable isLocked');
         success = true;
         res.json({ success, status });
     } catch (err) {
@@ -168,11 +168,13 @@ router.get('/getvisibility', fetchUser, async (req, res) => {
 
 
 // Route 5: Change profile visibility using: POST '/api/profile/changevisibility'
-router.post('/changevisibility', fetchUser, async (req, res) => {
+router.post('/changestatus', fetchUser, async (req, res) => {
     let success = false;
+    console.log(req.body);
+    // let field = req.body.fieldname
 
     try {
-        await userModel.findByIdAndUpdate(req.user.id, { isPublic: req.body.status });
+        await userModel.findByIdAndUpdate(req.user.id, { [req.body.fieldname]: req.body.status });
         success = true;
         res.json({ success, msg: 'Profile status updated' });
     } catch (err) {

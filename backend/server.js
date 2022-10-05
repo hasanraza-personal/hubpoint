@@ -28,6 +28,7 @@ app.use(express.static(__dirname + '/public'));
 app.use('/api/auth', require('./routes/Authentication'));
 app.use('/api/profile', require('./routes/Profile'));
 app.use('/api/social', require('./routes/Social'));
+app.use('/api/others', require('./routes/Others'));
 
 // app.get('/*', function (req, res) {
 //     res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));

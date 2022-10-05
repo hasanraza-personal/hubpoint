@@ -4,7 +4,7 @@ import CardHead from '../../components/card/components/CardHead';
 import CardAccount from '../../components/card/components/CardAccount';
 import { Pencil, PlusCircle } from 'react-bootstrap-icons';
 import SocialQRCode from './components/SocialQRCode';
-import ProfileStatus from './components/ProfileStatus';
+// import ProfileStatus from './components/ProfileStatus';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
 import axios from 'axios';
@@ -61,7 +61,7 @@ const Profile = () => {
             {user ? <>
                 <Container mt='5px'>
                     {/* Account Status */}
-                    <ProfileStatus />
+                    {/* <ProfileStatus /> */}
 
                     {/* Card Head */}
                     <Container shadow='xs' bg='#fff' mt='10px' p='5px' borderRadius='20px'>
