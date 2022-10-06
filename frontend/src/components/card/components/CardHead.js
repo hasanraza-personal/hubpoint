@@ -1,12 +1,14 @@
-import { Box, Drawer,  DrawerContent, DrawerOverlay, Flex, Icon, Image, useDisclosure } from '@chakra-ui/react';
+import { Box, Drawer, DrawerContent, DrawerOverlay, Flex, Icon, Image, useDisclosure, useToast } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { ShareFill, XCircleFill } from 'react-bootstrap-icons';
 import ShareImage from '../../../public/images/icon/share-img.png';
 import WhatsAppImage from '../../../public/images/icon/whatsapp-img.png';
 
 const CardHead = ({ name, username, photo }) => {
+    console.log('username: ', username);
     const { isOpen: isDrawerOpen, onOpen: OpenDrawer, onClose: closeDrawer } = useDisclosure();
     const [link, setLink] = useState('');
+    const toast = useToast();
 
     const handleShare = () => {
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
@@ -14,6 +16,17 @@ const CardHead = ({ name, username, photo }) => {
         } else {
             setLink(`https://web.whatsapp.com/send?phone=&text=https://hubpoint.in/user/${username}`)
         }
+    }
+
+    const handleCopy = (username) => {
+        navigator.clipboard.writeText(`https://hubpoint.in/user/${username}`);
+        toast({
+            position: 'top',
+            title: 'Link copied!',
+            status: 'success',
+            duration: 3000,
+            isClosable: true,
+        });
     }
 
     return (
@@ -54,10 +67,13 @@ const CardHead = ({ name, username, photo }) => {
                 <Box as={Image} src={photo} boxSize='90px' borderRadius='50%' objectFit='cover' alt='profile photo' />
                 <Box fontWeight='bold' fontSize='1.4rem'>{name}</Box>
                 <Flex alignItems='center' flexWrap='wrap'>
-                    <Box fontWeight='bold' fontSize='1rem' mr='6px' overflow='auto'>hubpoint.in/user/{username}</Box>
+                    <Box fontWeight='bold' cursor='pointer' fontSize='1rem' mr='6px' overflow='auto' onClick={() => handleCopy(username)}>{username}</Box>
                     <Icon as={ShareFill} cursor='pointer' onClick={OpenDrawer} />
                 </Flex>
             </Flex>
+            <Box lineHeight='normal' w='100%' textAlign='center' color='#696666' fontSize='.8rem' mb='5px'>
+                Share the above link to your friends or click to copy link and share it
+            </Box>
         </>
     )
 }

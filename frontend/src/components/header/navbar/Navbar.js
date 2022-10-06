@@ -3,7 +3,6 @@ import React from 'react';
 import { Gear } from 'react-bootstrap-icons';
 import { Link, NavLink } from 'react-router-dom';
 import { NavbarItems } from './NavbarItems';
-import NavbarMenu from './NavbarMenu';
 
 const Navbar = () => {
     const [mobileScreen] = useMediaQuery('(max-width: 850px)');

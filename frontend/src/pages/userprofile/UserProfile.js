@@ -5,11 +5,11 @@ import { useParams } from 'react-router-dom'
 import { useQuery } from 'react-query';
 import CardHead from '../../components/card/components/CardHead';
 import CardAccount from '../../components/card/components/CardAccount';
-import SocialQRCode from '../profile/components/SocialQRCode';
 import ErrorImage from '../../public/images/svg/404-img.svg';
 import NotFoundImage from '../../public/images/svg/not-found-img.svg';
 import SocailImageAccount from '../../public/images/svg/socail-account-img.svg';
 import NotAccessIbleImage from '../../public/images/svg/not-accessible.svg';
+import QRCard from '../../components/card/components/QRCard';
 
 const UserProfile = () => {
     const reloadPage = () => {
@@ -60,9 +60,6 @@ const UserProfile = () => {
                                 {/* Card Head */}
                                 <Container shadow='xs' bg='#fff' mt='10px' p='5px' borderRadius='20px'>
                                     <CardHead name={user.name} username={user.username} photo={user.photo} />
-                                    <Box lineHeight='normal' w='100%' textAlign='center' color='#696666' fontSize='.8rem' mb='5px'>
-                                        Share the above link to your friends or copy url from the brower and share it.
-                                    </Box>
                                 </Container>
 
                                 {user.accounts.length !== 0 ? <>
@@ -72,7 +69,9 @@ const UserProfile = () => {
                                     </Container>
 
                                     {/* QR Code */}
-                                    <SocialQRCode name={user.name} username={user.username} photo={user.photo} />
+                                    <Container shadow='xs' bg='#fff' mt='10px' mb='50px' p='15px' borderRadius='20px'>
+                                        <QRCard name={user.name} username={user.username} photo={user.photo} account={user.accounts} />
+                                    </Container>
                                 </> : <>
                                     <Flex flexDirection='column' alignItems='center'>
                                         <Image src={SocailImageAccount} alt='Not found' boxSize='200px' />

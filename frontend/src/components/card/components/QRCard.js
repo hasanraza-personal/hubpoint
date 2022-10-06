@@ -1,42 +1,14 @@
-import { Box, Button, Container, Flex, Image, Modal, ModalContent, ModalOverlay, useDisclosure, useToast } from '@chakra-ui/react';
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import QRImage from '../../../public/images/svg/qr-code.svg';
 import QRCode from 'qrcode';
+import { Box, Button, Flex, Image, Modal, ModalContent, ModalOverlay, useDisclosure, useToast } from '@chakra-ui/react';
+import QRImage from '../../../public/images/svg/qr-code.svg';
+import { Link } from 'react-router-dom';
 
-const SocialQRCode = ({ name, username, photo }) => {
-    const toast = useToast();
-    const [account, setAccount] = useState(false);
+const QRCard = ({ name, username, photo, account }) => {
     const { isOpen: isModalOpen, onOpen: openModal, onClose: closeModal } = useDisclosure();
-    const url = `https://hubpoint.in//user${username}`
+    const url = `https://hubpoint.in/user/${username}`
     const [imageQR, setImageQR] = useState();
-
-    const getUserSocialAccount = async () => {
-        try {
-            let response = await axios({
-                method: 'GET',
-                url: '/api/social/getsocialaccount',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'user-token': localStorage.getItem('hubpoint-user-token')
-                },
-            });
-            let data = response.data.userAccount.accounts;
-
-            if (data.length > 0) {
-                setAccount(true)
-            }
-        } catch (err) {
-            toast({
-                position: 'top',
-                title: err.response.data.error,
-                status: 'error',
-                duration: 3000,
-                isClosable: true,
-            });
-        }
-    }
+    const toast = useToast();
 
     const generateQRCode = () => {
         // Generate QRCode
@@ -62,14 +34,14 @@ const SocialQRCode = ({ name, username, photo }) => {
     }
 
     useEffect(() => {
-        getUserSocialAccount();
         generateQRCode();
         // eslint-disable-next-line
     }, [])
+
     return (
         <>
             {/* Modal */}
-            <Modal isOpen={isModalOpen} onClose={closeModal}>
+            <Modal isOpen={isModalOpen} onClose={closeModal} isCentered>
                 <ModalOverlay />
                 <ModalContent bg='#fff' p='20px'>
                     <Flex alignItems='center' flexDirection='column'>
@@ -77,7 +49,7 @@ const SocialQRCode = ({ name, username, photo }) => {
                         <Flex flexDirection='column' alignItems='center' lineHeight='normal' mt='10px'>
                             <Box fontWeight='bold' fontSize='20px'>{name}</Box>
                             <Flex gap='5px'>
-                                <Box>{url}</Box>
+                                <Box>{username}</Box>
                                 <Box color='#246bfd' cursor='pointer' onClick={() => handleCopy(username)}>Copy</Box>
                             </Flex>
                         </Flex>
@@ -86,7 +58,7 @@ const SocialQRCode = ({ name, username, photo }) => {
                         <Image src={imageQR} boxSize='250px' />
                     </Flex>
                     <Box lineHeight='normal' textAlign='center' color='#a09e9e'>
-                        Scan the above QR Code or share the above link to your friends
+                        Scan the above QR Code or copy the above username and share it
                     </Box>
                     <Box w='100%' mt='20px'>
                         <Button
@@ -103,23 +75,21 @@ const SocialQRCode = ({ name, username, photo }) => {
                 </ModalContent>
             </Modal>
 
-            <Container shadow='xs' bg='#fff' mt='10px' mb='50px' p='15px' borderRadius='20px'>
-                <Flex flexDirection='column' alignItems='center'>
-                    <Image src={QRImage} alt='QR code' boxSize='200px' />
-                    {account ? <>
-                        <Box w='100%' mt='20px'>
-                            <Button w='100%' bg='#246bfd' color='#fff' className='button-hover' onClick={openModal}>View Your QR Code</Button>
-                        </Box>
-                    </> : <>
-                        <Box mt='10px'>Please add account to generate QR code</Box>
-                        <Box w='100%' mt='10px'>
-                            <Button as={Link} to='addaccount' w='100%' bg='#246bfd' color='#fff' className='button-hover'>Add Social Account</Button>
-                        </Box>
-                    </>}
-                </Flex>
-            </Container>
+            <Flex flexDirection='column' alignItems='center'>
+                <Image src={QRImage} alt='QR code' boxSize='200px' />
+                {account.length > 0 ? <>
+                    <Box w='100%' mt='20px'>
+                        <Button w='100%' bg='#246bfd' color='#fff' className='button-hover' onClick={openModal}>View QR Code Profile</Button>
+                    </Box>
+                </> : <>
+                    <Box mt='10px'>Please add account to generate QR code</Box>
+                    <Box w='100%' mt='10px'>
+                        <Button as={Link} to='addaccount' w='100%' bg='#246bfd' color='#fff' className='button-hover'>Add Social Account</Button>
+                    </Box>
+                </>}
+            </Flex>
         </>
     )
 }
 
-export default SocialQRCode
+export default QRCard

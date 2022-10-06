@@ -3,22 +3,20 @@ import React, { useContext, useEffect, useState } from 'react';
 import CardHead from '../../components/card/components/CardHead';
 import CardAccount from '../../components/card/components/CardAccount';
 import { Pencil, PlusCircle } from 'react-bootstrap-icons';
-import SocialQRCode from './components/SocialQRCode';
-// import ProfileStatus from './components/ProfileStatus';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
 import axios from 'axios';
 import { Helmet } from 'react-helmet-async';
-// import AccessDeniedImage from '../../public/images/svg/access-denied-img.svg';
 import LoginImage from '../../public/images/svg/new-login-img.svg';
+import QRCard from '../../components/card/components/QRCard';
 
 const Profile = () => {
     const [mobileScreen] = useMediaQuery('(max-width: 850px)');
     const { globalname, globalusername, globalphoto } = useContext(UserContext);
     const toast = useToast();
     const [accounts, setAccounts] = useState([])
-    // eslint-disable-next-line
-    const [user, setUser] = useState(localStorage.getItem('hubpoint-user'));
+
+    const user = localStorage.getItem('hubpoint-user')
 
     const getUserSocialAccount = async () => {
         try {
@@ -60,9 +58,6 @@ const Profile = () => {
 
             {user ? <>
                 <Container mt='5px'>
-                    {/* Account Status */}
-                    {/* <ProfileStatus /> */}
-
                     {/* Card Head */}
                     <Container shadow='xs' bg='#fff' mt='10px' p='5px' borderRadius='20px'>
                         <Flex as={Link} to='editprofile' w='100%' alignItems='center' px='15px' color='#246bfd' justifyContent='end' fontWeight='bold' cursor='pointer'>
@@ -70,9 +65,6 @@ const Profile = () => {
                             <Box textDecoration='underline' ml='2px'>edit</Box>
                         </Flex>
                         <CardHead name={globalname} username={globalusername} photo={globalphoto} />
-                        <Box lineHeight='normal' w='100%' textAlign='center' color='#696666' fontSize='.8rem' mb='5px'>
-                            Share the above link to your friends or copy url from the brower and share it.
-                        </Box>
                     </Container>
 
                     {/* Card Account */}
@@ -85,7 +77,10 @@ const Profile = () => {
                     </Container>
 
                     {/* QR Code */}
-                    <SocialQRCode name={globalname} username={globalusername} photo={globalphoto} />
+                    <Container shadow='xs' bg='#fff' mt='10px' mb='50px' p='15px' borderRadius='20px'>
+                        <QRCard name={globalname} username={globalusername} photo={globalphoto} account={accounts} />
+                    </Container>
+
                 </Container>
             </> : <>
                 <Container shadow='xs' bg='#fff' mt='1px' p='5px' height={mobileScreen ? 'calc(100vh - 95px)' : 'calc(100vh - 55px)'}>
