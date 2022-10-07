@@ -17,6 +17,7 @@ import TermsAndConditions from './pages/others/TermsAndConditions';
 import PrivacyPolicy from './pages/others/PrivacyPolicy';
 import UserProfile from './pages/userprofile/UserProfile';
 import Home from './pages/home/Home';
+import SearchUser from './pages/search/SearchUser';
 
 function App() {
 	const [mobileScreen] = useMediaQuery('(max-width: 850px)');
@@ -28,7 +29,9 @@ function App() {
 				<AlertState>
 					{location.pathname !== '/profile/addaccount' &&
 						<>
-							< Header />
+							{location.pathname !== '/search' &&
+								< Header />
+							}
 							{mobileScreen && <BottomNavbar />}
 							{/* <Card /> */}
 						</>
@@ -39,12 +42,13 @@ function App() {
 						<Route path='/user/:username' element={<UserProfile />} />
 
 						<Route path='/login' element={<Login />} />
-						<Route path='/home' element={<Home /> } />
+						<Route path='/home' element={<Home />} />
 						<Route path='/profile' >
 							<Route index element={<Profile />} />
 							<Route path='addaccount' element={<AddProfileAccount />} />
 							<Route path='editprofile' element={<EditProfileHead />} />
 						</Route>
+						<Route path='/search' element={<SearchUser />} />
 						<Route path='/settings' element={<Settings />} />
 
 						<Route path='/termsandconditions' element={<TermsAndConditions />} />

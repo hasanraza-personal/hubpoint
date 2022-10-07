@@ -18,7 +18,12 @@ const CardHead = ({ name, username, photo }) => {
     }
 
     const handleCopy = (username) => {
-        navigator.clipboard.writeText(`https://hubpoint.in/user/${username}`);
+        if(process.env.REACT_APP_ENV === 'production'){
+            navigator.clipboard.writeText(`https://hubpoint.in/user/${username}`);
+        }else{
+            navigator.clipboard.writeText(`http://localhost:5000/user/${username}`);
+        }
+        
         toast({
             position: 'top',
             title: 'Link copied!',

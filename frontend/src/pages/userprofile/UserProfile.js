@@ -1,7 +1,7 @@
-import { Box, CircularProgress, Container, Flex, Image, Link } from '@chakra-ui/react';
+import { Box, CircularProgress, Container, Flex, Icon, Image, Link } from '@chakra-ui/react';
 import axios from 'axios';
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link as ReactLink } from 'react-router-dom'
 import { useQuery } from 'react-query';
 import CardHead from '../../components/card/components/CardHead';
 import CardAccount from '../../components/card/components/CardAccount';
@@ -10,6 +10,7 @@ import NotFoundImage from '../../public/images/svg/not-found-img.svg';
 import SocailImageAccount from '../../public/images/svg/socail-account-img.svg';
 import NotAccessIbleImage from '../../public/images/svg/not-accessible.svg';
 import QRCard from '../../components/card/components/QRCard';
+import { ArrowLeftCircleFill } from 'react-bootstrap-icons';
 
 const UserProfile = () => {
     const reloadPage = () => {
@@ -43,6 +44,12 @@ const UserProfile = () => {
     return (
         <>
             <Container mt='5px' pb='55px'>
+                {/* Back Button */}
+                <Flex as={ReactLink} to='/home' alignItems='center'>
+                    <Icon as={ArrowLeftCircleFill} />
+                    <Box ml='5px' textDecoration='underline'>Back to HomePage</Box>
+                </Flex>
+
                 {data?.user.length > 0 ? <>
                     {data?.user.map((user, index) => (
                         <Box key={index}>
