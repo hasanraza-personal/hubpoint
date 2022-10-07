@@ -5,7 +5,6 @@ import ShareImage from '../../../public/images/icon/share-img.png';
 import WhatsAppImage from '../../../public/images/icon/whatsapp-img.png';
 
 const CardHead = ({ name, username, photo }) => {
-    console.log('username: ', username);
     const { isOpen: isDrawerOpen, onOpen: OpenDrawer, onClose: closeDrawer } = useDisclosure();
     const [link, setLink] = useState('');
     const toast = useToast();

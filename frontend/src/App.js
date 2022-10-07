@@ -16,6 +16,7 @@ import Settings from './pages/settings/Settings';
 import TermsAndConditions from './pages/others/TermsAndConditions';
 import PrivacyPolicy from './pages/others/PrivacyPolicy';
 import UserProfile from './pages/userprofile/UserProfile';
+import Home from './pages/home/Home';
 
 function App() {
 	const [mobileScreen] = useMediaQuery('(max-width: 850px)');
@@ -38,6 +39,7 @@ function App() {
 						<Route path='/user/:username' element={<UserProfile />} />
 
 						<Route path='/login' element={<Login />} />
+						<Route path='/home' element={<Home /> } />
 						<Route path='/profile' >
 							<Route index element={<Profile />} />
 							<Route path='addaccount' element={<AddProfileAccount />} />
