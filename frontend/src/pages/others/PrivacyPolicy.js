@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Box, Container, Image, Link } from '@chakra-ui/react';
 import Image1 from '../../public/images/svg/privacypolicy-img.svg';
 import '../../css/terms-and-condition.css';
 
 const PrivacyPolicy = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
+
     return (
         <>
             <Container mt='20px' mb='55px' fontFamily='SFPro'>

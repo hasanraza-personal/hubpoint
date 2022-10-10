@@ -8,13 +8,21 @@ router.get('/', async (req, res) => {
     let success = false;
     const limit = 5;
     const startIndex = (page - 1) * limit;
+    let totalPages = null;
+
+    try {
+        let totalDocuments = await userModel.countDocuments();
+        totalPages = Math.ceil(totalDocuments / 5)
+    } catch (error) {
+        return res.status(400).json({ success, error: error.message, message: 'Something went wrong. Please try again' });
+    }
 
     try {
         let users = await userModel.find().select('-accounts').limit(limit).skip(startIndex);
         success = true;
-        res.json({ success, users });
+        res.json({ success, users, totalPages });
     } catch (error) {
-        return res.status(400).json({ success, error: 'Something went wrong. Please try again', message: error.message });
+        return res.status(400).json({ success, error: error.message, message: 'Something went wrong. Please try again' });
     }
 })
 

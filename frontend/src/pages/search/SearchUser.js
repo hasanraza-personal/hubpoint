@@ -40,26 +40,28 @@ const SearchUser = () => {
 
                 <Box bg='#fff' pt='5px' pb='20px'>
                     {users.map((user, index) => {
-                        if (users.length === index + 1) {
-                            return (
-                                <Flex as={Link} to={`/user/${user.username}`} key={index} px='10px' py='5px' ref={lastBookElementRef}>
-                                    <Box as={Image} alt='User image' src={user.photo} borderRadius='50%' boxSize='45px' />
-                                    <Flex flexDirection='column' justifyContent='center' lineHeight='normal' ml='10px'>
-                                        <Box fontSize='16px'>{user.name}</Box>
-                                        <Box fontSize='14px' color='#6d6a6a'>{user.username}</Box>
+                        if (!user.isLocked && !user.isBlocked && user.isSearchable) {
+                            if (users.length === index + 1) {
+                                return (
+                                    <Flex as={Link} to={`/user/${user.username}`} key={index} px='10px' py='5px' ref={lastBookElementRef}>
+                                        <Box as={Image} alt='User image' src={user.photo} borderRadius='50%' boxSize='45px' />
+                                        <Flex flexDirection='column' justifyContent='center' lineHeight='normal' ml='10px'>
+                                            <Box fontSize='16px'>{user.name}</Box>
+                                            <Box fontSize='14px' color='#6d6a6a'>{user.username}</Box>
+                                        </Flex>
                                     </Flex>
-                                </Flex>
-                            )
-                        } else {
-                            return (
-                                <Flex as={Link} to={`/user/${user.username}`} key={index} px='10px' py='5px'>
-                                    <Box as={Image} alt='User image' src={user.photo} borderRadius='50%' boxSize='45px' />
-                                    <Flex flexDirection='column' justifyContent='center' lineHeight='normal' ml='10px'>
-                                        <Box fontSize='16px'>{user.name}</Box>
-                                        <Box fontSize='14px' color='#6d6a6a'>{user.username}</Box>
+                                )
+                            } else {
+                                return (
+                                    <Flex as={Link} to={`/user/${user.username}`} key={index} px='10px' py='5px'>
+                                        <Box as={Image} alt='User image' src={user.photo} borderRadius='50%' boxSize='45px' />
+                                        <Flex flexDirection='column' justifyContent='center' lineHeight='normal' ml='10px'>
+                                            <Box fontSize='16px'>{user.name}</Box>
+                                            <Box fontSize='14px' color='#6d6a6a'>{user.username}</Box>
+                                        </Flex>
                                     </Flex>
-                                </Flex>
-                            )
+                                )
+                            }
                         }
                     })}
                 </Box>

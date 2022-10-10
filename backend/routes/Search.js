@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
                 { name: { $regex: `^${req.query.q.trim()}`, $options: 'i' } },
                 { username: { $regex: `^${req.query.q.trim()}`, $options: 'i' } },
             ]
-        }).select('photo name username').limit(limit).skip(startIndex);
+        }).select('photo name username isPublic isSearchable isLocked isBlock').limit(limit).skip(startIndex);
         success = true;
         res.json({ success, users });
     } catch (error) {

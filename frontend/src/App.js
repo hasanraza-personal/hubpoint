@@ -23,6 +23,10 @@ function App() {
 	const [mobileScreen] = useMediaQuery('(max-width: 850px)');
 	const location = useLocation();
 
+	window.addEventListener("beforeunload", () => {
+		sessionStorage.removeItem('rendered')
+	});
+
 	return (
 		<>
 			<UserState>

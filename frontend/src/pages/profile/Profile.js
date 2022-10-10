@@ -42,6 +42,7 @@ const Profile = () => {
     }
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         if (user) {
             getUserSocialAccount();
         }
