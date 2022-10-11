@@ -27,6 +27,8 @@ const Home = () => {
     }
 
     const {
+        isLoading,
+        isFetching,
         fetchNextPage,
         hasNextPage,
         isFetchingNextPage,
@@ -55,31 +57,35 @@ const Home = () => {
             <Container mb='55px' p='0'>
                 {data?.pages.map((page, i) => {
                     return page.users.map((user, index) => {
-                        if (page.users.length === index + 1) {
-                            return (<Container key={index} ref={lastBookElementRef} p='5px'>
-                                <Container shadow='xs' bg='#fff' mt='5px' px='15px' py='5px' borderRadius='5px'>
-                                    <CardHead name={user.name} username={user.username} photo={user.photo} />
-                                    <CardBottom username={user.username} />
-                                </Container>
-                            </Container>)
-                        } else {
-                            return (<Container key={index} p='5px'>
-                                <Container shadow='xs' bg='#fff' mt='5px' px='15px' py='5px' borderRadius='5px'>
-                                    <CardHead name={user.name} username={user.username} photo={user.photo} />
-                                    <CardBottom username={user.username} />
-                                </Container>
-                            </Container>)
+                        if (!user.isLocked && !user.isBlocked && user.isPublic) {
+                            if (page.users.length === index + 1) {
+                                return (<Container key={index} ref={lastBookElementRef} p='5px'>
+                                    <Container shadow='xs' bg='#fff' mt='5px' px='15px' py='5px' borderRadius='5px'>
+                                        <CardHead name={user.name} username={user.username} photo={user.photo} />
+                                        <CardBottom username={user.username} />
+                                    </Container>
+                                </Container>)
+                            } else {
+                                return (<Container key={index} p='5px'>
+                                    <Container shadow='xs' bg='#fff' mt='5px' px='15px' py='5px' borderRadius='5px'>
+                                        <CardHead name={user.name} username={user.username} photo={user.photo} />
+                                        <CardBottom username={user.username} />
+                                    </Container>
+                                </Container>)
+                            }
                         }
                     })
                 })}
 
+                {isLoading || isFetching ? <Flex justifyContent='center' mt='30px'>
+                    <CircularProgress isIndeterminate thickness='6px' color='#246bfd' />
+                </Flex> : <Flex justifyContent='center'>
+                    No more data to load
+                </Flex>}
+
                 {isFetchingNextPage && <Flex justifyContent='center' mt='30px'>
                     <CircularProgress isIndeterminate thickness='6px' color='#246bfd' />
                 </Flex>}
-
-                <Flex justifyContent='center'>
-                    No more data to load
-                </Flex>
 
                 {status === 'error' && <Flex justifyContent='center'>
                     Something went wrong. Please try again

@@ -119,7 +119,7 @@ const AddProduct = ({refetch}) => {
     return (
         <>
             {/* Modal */}
-            <Modal closeOnOverlayClick={false} isOpen={isOpen} onClose={onClose}>
+            <Modal closeOnOverlayClick={false} isOpen={isOpen} onClose={onClose} isCentered>
                 <ModalOverlay />
                 <ModalContent p='15px'>
                     <Heading size='lg'>Add Product</Heading>

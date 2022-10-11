@@ -27,6 +27,7 @@ const Shop = () => {
 
     const {
         isLoading,
+        isFetching,
         fetchNextPage,
         hasNextPage,
         isFetchingNextPage,
@@ -73,10 +74,10 @@ const Shop = () => {
                     })
                 })}
 
-                {isLoading ? <Flex justifyContent='center' mt='30px'>
+                {isLoading || isFetching ? <Flex justifyContent='center' mt='30px'>
                     <CircularProgress isIndeterminate thickness='6px' color='#246bfd' />
                 </Flex> : <Flex justifyContent='center'>
-                    No more data to load
+                    No more products to load
                 </Flex>}
 
                 {isFetchingNextPage && <Flex justifyContent='center' mt='30px'>
