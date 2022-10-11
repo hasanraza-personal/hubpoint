@@ -24,7 +24,7 @@ const Alert = () => {
 			>
 				<AlertDialogOverlay />
 
-				<AlertDialogContent p='20px' fontFamily='rubik'>
+				<AlertDialogContent p='20px'>
 					{/* Image */}
 					<Flex justifyContent='center'>
 						<Image src={alertImage} alt='Image' boxSize='70px' />

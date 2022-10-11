@@ -1,14 +1,11 @@
 import { Box, Button, Container, Flex, Heading, Image, useMediaQuery } from '@chakra-ui/react';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import IndexImage from '../../public/images/svg/index-photo.svg'
 
 const Index = () => {
     const [mobileScreen] = useMediaQuery('(max-width: 850px)');
     
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [])
     return (
         <>
             <Container shadow='xs' bg='#fff' mt='1px' height='calc(100vh - 55px)'>

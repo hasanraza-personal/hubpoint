@@ -1,6 +1,6 @@
 import { Box, CircularProgress, Container, Flex, Icon, Image, Link } from '@chakra-ui/react';
 import axios from 'axios';
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useParams, Link as ReactLink } from 'react-router-dom'
 import { useQuery } from 'react-query';
 import CardHead from '../../components/card/components/CardHead';
@@ -13,10 +13,6 @@ import QRCard from '../../components/card/components/QRCard';
 import { ArrowLeftCircleFill } from 'react-bootstrap-icons';
 
 const UserProfile = () => {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [])
-
     const reloadPage = () => {
         window.location.reload();
     }

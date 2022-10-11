@@ -21,7 +21,7 @@ root.render(
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
         <ChakraProvider>
-          {/* <ScrollToTop /> */}
+          <ScrollToTop />
           <GoogleOAuthProvider clientId='727947435835-jla9q6j0dmnntn8u9u53uioj6c5bhc42.apps.googleusercontent.com'>
             <App />
           </GoogleOAuthProvider>

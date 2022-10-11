@@ -54,25 +54,23 @@ const Home = () => {
         <>
             <Container mb='55px' p='0'>
                 {data?.pages.map((page, i) => {
-                    {
-                        return page.users.map((user, index) => {
-                            if (page.users.length === index + 1) {
-                                return (<Container key={index} ref={lastBookElementRef} p='5px'>
-                                    <Container shadow='xs' bg='#fff' mt='5px' px='15px' py='5px' borderRadius='5px'>
-                                        <CardHead name={user.name} username={user.username} photo={user.photo} />
-                                        <CardBottom username={user.username} />
-                                    </Container>
-                                </Container>)
-                            } else {
-                                return (<Container key={index} p='5px'>
-                                    <Container shadow='xs' bg='#fff' mt='5px' px='15px' py='5px' borderRadius='5px'>
-                                        <CardHead name={user.name} username={user.username} photo={user.photo} />
-                                        <CardBottom username={user.username} />
-                                    </Container>
-                                </Container>)
-                            }
-                        })
-                    }
+                    return page.users.map((user, index) => {
+                        if (page.users.length === index + 1) {
+                            return (<Container key={index} ref={lastBookElementRef} p='5px'>
+                                <Container shadow='xs' bg='#fff' mt='5px' px='15px' py='5px' borderRadius='5px'>
+                                    <CardHead name={user.name} username={user.username} photo={user.photo} />
+                                    <CardBottom username={user.username} />
+                                </Container>
+                            </Container>)
+                        } else {
+                            return (<Container key={index} p='5px'>
+                                <Container shadow='xs' bg='#fff' mt='5px' px='15px' py='5px' borderRadius='5px'>
+                                    <CardHead name={user.name} username={user.username} photo={user.photo} />
+                                    <CardBottom username={user.username} />
+                                </Container>
+                            </Container>)
+                        }
+                    })
                 })}
 
                 {isFetchingNextPage && <Flex justifyContent='center' mt='30px'>

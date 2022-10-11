@@ -1,5 +1,5 @@
 import { Box, Button, Container, Divider, Flex, Image, useMediaQuery } from '@chakra-ui/react'
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import AccountAction from './components/AccountAction';
 import GeneralAction from './components/GeneralAction';
@@ -8,10 +8,6 @@ import AccessDeniedImage from '../../public/images/svg/access-denied-img.svg'
 
 const Settings = () => {
     const [mobileScreen] = useMediaQuery('(max-width: 850px)');
-
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [])
 
     return (
         <>

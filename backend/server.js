@@ -32,6 +32,7 @@ app.use('/api/others', require('./routes/Others'));
 app.use('/api/user', require('./routes/Visitor'));
 app.use('/api/home', require('./routes/Home'));
 app.use('/api/search', require('./routes/Search'));
+app.use('/api/product', require('./routes/Product'));
 
 // app.get('/*', function (req, res) {
 //     res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));

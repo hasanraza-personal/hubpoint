@@ -18,6 +18,7 @@ import PrivacyPolicy from './pages/others/PrivacyPolicy';
 import UserProfile from './pages/userprofile/UserProfile';
 import Home from './pages/home/Home';
 import SearchUser from './pages/search/SearchUser';
+import Shop from './pages/shop/Shop';
 
 function App() {
 	const [mobileScreen] = useMediaQuery('(max-width: 850px)');
@@ -37,7 +38,6 @@ function App() {
 								< Header />
 							}
 							{mobileScreen && <BottomNavbar />}
-							{/* <Card /> */}
 						</>
 					}
 
@@ -52,6 +52,7 @@ function App() {
 							<Route path='addaccount' element={<AddProfileAccount />} />
 							<Route path='editprofile' element={<EditProfileHead />} />
 						</Route>
+						<Route path='/shop' element={<Shop />} />
 						<Route path='/search' element={<SearchUser />} />
 						<Route path='/settings' element={<Settings />} />
 
