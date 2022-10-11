@@ -86,7 +86,6 @@ router.post('/addproduct', async (req, res) => {
 // Route 2: Delete product using: POST '/api/product/deleteproduct'
 router.post('/deleteproduct', async (req, res) => {
     let success = false;
-    console.log('req.body.productid: ', req.body.productid);
 
     let product = await productModel.findById(req.body.productid).select('-_id productPhoto');
     console.log('product: ', product);
