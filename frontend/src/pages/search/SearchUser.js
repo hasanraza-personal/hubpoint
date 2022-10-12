@@ -4,6 +4,7 @@ import { Search, XCircleFill } from 'react-bootstrap-icons'
 import SearchUserFetch from './components/SearchUserFetch';
 import SearchImage from '../../public/images/svg/search.svg';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async'
 
 const SearchUser = () => {
     const [query, setQuery] = useState('');
@@ -29,6 +30,13 @@ const SearchUser = () => {
 
     return (
         <>
+            <Helmet>
+                <title>HubPoint - Search your friends' social media and gaming handles</title>
+                <meta name="description" content="Tired of searching for someone across various social media platforms? Find them here." />
+                <link rel='canonical' href='https://hubpoint/search' />
+                <meta name="keywords" content="Search, FaceBook, Instagram, Snapchat, Twitter, Linkedin, Youtube, Call of Duty, Clash og Clans, Pokemon Go, PUBG, Fortnite, Minecraft, Free Fire, QR Code, Social Media, Social, Link, Username, Followers, Following, Friends" />
+            </Helmet>
+
             <Container px='5px' pt='5px' pb='55px' height='100vh' bg='#fff'>
                 <Box mt='10px' mx='1px'>
                     <InputGroup bg='#fff' shadow='base' borderRadius='5px'>

@@ -19,6 +19,7 @@ import UserProfile from './pages/userprofile/UserProfile';
 import Home from './pages/home/Home';
 import SearchUser from './pages/search/SearchUser';
 import Shop from './pages/shop/Shop';
+import Info from './pages/info/Info';
 
 function App() {
 	const [mobileScreen] = useMediaQuery('(max-width: 850px)');
@@ -52,6 +53,7 @@ function App() {
 							<Route path='addaccount' element={<AddProfileAccount />} />
 							<Route path='editprofile' element={<EditProfileHead />} />
 						</Route>
+						<Route path='/info' element={<Info />} />
 						<Route path='/shop' element={<Shop />} />
 						<Route path='/search' element={<SearchUser />} />
 						<Route path='/settings' element={<Settings />} />

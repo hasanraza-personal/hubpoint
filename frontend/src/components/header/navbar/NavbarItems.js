@@ -1,10 +1,15 @@
-import { House, Bag, PersonCircle, Search } from 'react-bootstrap-icons';
+import { House, Bag, PersonCircle, Search, InfoCircle } from 'react-bootstrap-icons';
 
 export const NavbarItems = [
     {
         icon: House,
         title: 'Home',
         url: '/home'
+    },
+    {
+        icon: InfoCircle,
+        title: 'Info',
+        url: '/info'
     },
     {
         icon: Bag,
@@ -15,10 +20,5 @@ export const NavbarItems = [
         icon: Search,
         title: 'Search',
         url: '/search'
-    },
-    {
-        icon: PersonCircle,
-        title: 'Profile',
-        url: '/profile'
-    },
+    }
 ]

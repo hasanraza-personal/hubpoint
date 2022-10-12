@@ -52,9 +52,10 @@ const Profile = () => {
     return (
         <>
             <Helmet>
-                <title>Profile | HubPoint</title>
-                <meta name="description" content="View your social account in QR Code form" />
-                <link rel='canonical' href='/profile' />
+                <title>HubPoint - Use my HubLink to find me</title>
+                <meta name="description" content="HubPoint is easiest way to view anyone across various social medias. Use your HubLink or QR Code to share all your social media handles in one go" />
+                <link rel='canonical' href='https://hubpoint/profile' />
+                <meta name="keywords" content="FaceBook, Instagram, Snapchat, Twitter, Linkedin, Youtube, Call of Duty, Clash og Clans, Pokemon Go, PUBG, Fortnite, Minecraft, Free Fire, QR Code, Social Media, Social, Link, Username, Followers, Following, Friends" />
             </Helmet>
 
             {user ? <>

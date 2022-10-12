@@ -10,7 +10,7 @@ const TermsAndConditions = () => {
 
     return (
         <>
-            <Container my='10px'>
+            <Container my='10px' mb='55px'>
                 <Box className="privay-policy-heading" lineHeight='normal'>HubPoint Terms and Condition</Box>
                 <Box className="privacy-policy-date">Updated October 05, 2022</Box>
                 <Box className="privacy-policy-short-info">Welcome to HubPoint!</Box>
@@ -45,25 +45,14 @@ const TermsAndConditions = () => {
                     </ul>
                 </Box>
                 <Box className="privacy-policy-desc">This Agreement shall begin on the date hereof.</Box>
-                <Box className="privacy-policy-desc">Parts of this website offer an opportunity for users to post and exchange opinions and information in certain areas of the website.
-                    HubPoint does not filter, edit, publish or review Comments prior to their presence on the website. Comments reflect the views and opinions of the person who post their views and opinions.
-                    To the extent permitted by applicable laws, HubPoint shall not be liable for the Comments or for any liability, damages or expenses caused and/or suffered as a result of any use of and/or
-                    posting of and/or appearance of the Comments on this website.
+                <Box className="privacy-policy-desc">Parts of this website offer an opportunity for users to share their social media handles. We do not take responsibility in case duplicate accounts are created for a particular user/username. Accounts promoting pornography or such related
+                content will be deleted. 
                 </Box>
                 <Box className="privacy-policy-desc">
                     HubPoint reserves the right to monitor all content and to remove any content which can be considered inappropriate, offensive or causes breach of these Terms and Conditions.
                 </Box>
-                <Box className="privacy-policy-desc">You warrant and represent that:</Box>
                 <Box className="privacy-policy-desc">
-                    <ul>
-                        <li>You are entitled to post the Comments on our website and have all necessary licenses and consents to do so</li>
-                        <li>The Comments do not invade any intellectual property right, including without limitation copyright, patent or trademark of any third party</li>
-                        <li>The Comments do not contain any defamatory, libelous, offensive, indecent or otherwise unlawful material which is an invasion of privacy</li>
-                        <li>The Comments will not be used to solicit or promote business or custom or present commercial activities or unlawful activity.</li>
-                    </ul>
-                </Box>
-                <Box className="privacy-policy-desc">
-                    You hereby grant HubPoint a non-exclusive license to use, reproduce, edit and authorize others to use, reproduce and edit any of your Comments in any and all forms, formats or media.
+                    You hereby grant HubPoint a non-exclusive license to use, reproduce, edit and authorize others to use, reproduce and edit any of your data in any and all forms, formats or media.
                 </Box>
                 <Box className="privacy-policy-heading">Your Privacy</Box>
                 <Box className="privacy-policy-desc">

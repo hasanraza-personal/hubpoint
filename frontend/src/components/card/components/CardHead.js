@@ -1,6 +1,7 @@
 import { Box, Drawer, DrawerContent, DrawerOverlay, Flex, Icon, Image, useDisclosure, useToast } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { ShareFill, XCircleFill } from 'react-bootstrap-icons';
+import { Helmet } from 'react-helmet-async';
 import ShareImage from '../../../public/images/icon/share-img.png';
 import WhatsAppImage from '../../../public/images/icon/whatsapp-img.png';
 
@@ -18,12 +19,12 @@ const CardHead = ({ name, username, photo }) => {
     }
 
     const handleCopy = (username) => {
-        if(process.env.REACT_APP_ENV === 'production'){
+        if (process.env.REACT_APP_ENV === 'production') {
             navigator.clipboard.writeText(`https://hubpoint.in/user/${username}`);
-        }else{
+        } else {
             navigator.clipboard.writeText(`http://localhost:5000/user/${username}`);
         }
-        
+
         toast({
             position: 'top',
             title: 'Link copied!',
@@ -35,6 +36,13 @@ const CardHead = ({ name, username, photo }) => {
 
     return (
         <>
+            <Helmet>
+                <title>HubPoint - Use my HubLink to find me</title>
+                <meta name="description" content="HubPoint is easiest way to view anyone across various social medias. Use your HubLink or QR Code to share all your social media handles in one go" />
+                <link rel='canonical' href={link} />
+                <meta name="keywords" content="FaceBook, Instagram, Snapchat, Twitter, Linkedin, Youtube, Call of Duty, Clash og Clans, Pokemon Go, PUBG, Fortnite, Minecraft, Free Fire, QR Code, Social Media, Social, Link, Username, Followers, Following, Friends" />
+            </Helmet>
+            
             {/* Drawer */}
             <Drawer placement='bottom' onClose={closeDrawer} isOpen={isDrawerOpen}>
                 <DrawerOverlay />

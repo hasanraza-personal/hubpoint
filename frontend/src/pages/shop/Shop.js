@@ -1,6 +1,7 @@
 import { CircularProgress, Container, Flex } from '@chakra-ui/react'
 import axios from 'axios'
 import React, { useCallback, useRef } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { useInfiniteQuery } from 'react-query'
 import AddProduct from './components/AddProduct'
 import Product from './components/Product'
@@ -55,6 +56,13 @@ const Shop = () => {
 
     return (
         <>
+            <Helmet>
+                <title>HubPoint | Shop online</title>
+                <meta name="description" content="Buy online products, hosting services and many more only on hubpoint" />
+                <link rel='canonical' href='/shop' />
+                <meta name="keywords" content="Amazon, Flipcart, DigitalOcean, Hostinger, Clothes, Hosting, Server, Domain, Diwali, Books, Clothes" />
+            </Helmet>
+            
             <Container mt='5px' mb='55px'>
                 {user?.username === 'hubpoint_world' && <AddProduct refetch={refetch} />}
 

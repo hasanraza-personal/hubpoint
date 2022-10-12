@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/static/css/main.23ae19db.css",
+    "main.js": "/static/js/main.fc3fcee0.js",
+    "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
+    "static/media/qr-loader.gif": "/static/media/qr-loader.9448abbf9a726a70c009.gif",
+    "static/media/SFPro.ttf": "/static/media/SFPro.1e1c0e29b79b49a6ff4d.ttf",
+    "static/media/Montserrat-Regular.ttf": "/static/media/Montserrat-Regular.ceb11275ab638627a643.ttf",
+    "static/media/socail-account-img.svg": "/static/media/socail-account-img.e68fadd9a596cbfa9cd501ca1110346f.svg",
+    "static/media/access-denied-img.svg": "/static/media/access-denied-img.ca5359adce4fd7e6b6834e0ec94a93af.svg",
+    "static/media/qr-code.svg": "/static/media/qr-code.3c2738b8c2adb648c3c14a9efd13ae21.svg",
+    "static/media/404-img.svg": "/static/media/404-img.a1fbad6ca6cf9ab0038fcf438392b892.svg",
+    "static/media/create-account-img.svg": "/static/media/create-account-img.8e9ed1987ca654368aab09490dd8582c.svg",
+    "static/media/not-accessible.svg": "/static/media/not-accessible.220a23c99da4c6c637b03a3fe4b164c2.svg",
+    "static/media/privacypolicy-img.svg": "/static/media/privacypolicy-img.e67ec212b1854b757b28894e9ac0bfe1.svg",
+    "static/media/login-photo.svg": "/static/media/login-photo.9f445beb6f8af83b7079705353bf78bf.svg",
+    "static/media/new-login-img.svg": "/static/media/new-login-img.34e897c9ce62ecae42a56a6827375a8e.svg",
+    "static/media/home-hide-img.svg": "/static/media/home-hide-img.d3ccc8fcb28c9481ea9ea74c7ba1cb69.svg",
+    "static/media/Image1.svg": "/static/media/Image1.a15bbb2f7dc2224a0166e4d7fbbacc0e.svg",
+    "static/media/contactus-img.svg": "/static/media/contactus-img.0631dfdc724b58ca90712ddd8ffa869e.svg",
+    "static/media/not-found-img.svg": "/static/media/not-found-img.77bfdb499862def13d2cce83d0543362.svg",
+    "static/media/termsandcondition-img.svg": "/static/media/termsandcondition-img.5fa3f4e0231cf7fc92ad7a2697c91593.svg",
+    "static/media/search.svg": "/static/media/search.dd6842d5e6d130352230725f0d25a6eb.svg",
+    "static/media/disable-account-img.svg": "/static/media/disable-account-img.d64c8977acaa6017d3f4174d572b6d90.svg",
+    "static/media/index-photo.svg": "/static/media/index-photo.4bbbcfe4aae04aa0054ce88f090fe518.svg",
+    "static/media/whatsapp-img.png": "/static/media/whatsapp-img.1c383a5e0b544e4f5080.png",
+    "static/media/logout-img.png": "/static/media/logout-img.89d1c9a977ea0926fc85.png",
+    "index.html": "/index.html",
+    "main.23ae19db.css.map": "/static/css/main.23ae19db.css.map",
+    "main.fc3fcee0.js.map": "/static/js/main.fc3fcee0.js.map",
+    "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.23ae19db.css",
+    "static/js/main.fc3fcee0.js"
+  ]
+}

@@ -35,20 +35,18 @@ const PrivacyPolicy = () => {
                 </Box>
                 <Box className="privacy-policy-desc">When you register for an Account, we may ask for your contact information, including items such as name, email address and gender.</Box>
                 <Box className="privacy-policy-or">OR</Box>
-                <Box className="privacy-policy-desc">When you login through Google account, we will collect information, such as name, email address and profile photo.</Box>
-                <Box className="privacy-policy-desc">We receive certain Personal Data directly from you when you provide us with the necessary details of your startup
+                <Box className="privacy-policy-desc">When you login through your Google account, we will collect information, such as name, email address and profile photo.</Box>
+                <Box className="privacy-policy-desc">We receive certain Personal Data directly from you when you provide us with your social media details
                     to be displayed on our website.
                 </Box>
                 <Box className="privacy-policy-heading">Data collected by us:</Box>
                 <Box className="privacy-policy-desc">
                     <ul>
-                        <li>Startup name</li>
-                        <li>Startup details</li>
-                        <li>Founder/owner name </li>
-                        <li>Place of Establishment of your startup</li>
-                        <li>Startup address</li>
-                        <li>Contact details(phone number/emails)</li>
-                        <li>Social media handles</li>
+                        <li>Name</li>
+                        <li>Gender</li>
+                        <li>Email address</li>
+                        <li>Profile photo</li>
+                        <li>Social media handles</li>            
                     </ul>
                 </Box>
                 <Box className="privacy-policy-heading">How we use your information</Box>

@@ -4,6 +4,7 @@ import CardBottom from '../../components/card/components/CardBottom';
 import CardHead from '../../components/card/components/CardHead';
 import { useInfiniteQuery } from 'react-query';
 import axios from 'axios';
+import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
     useEffect(() => {
@@ -54,6 +55,13 @@ const Home = () => {
 
     return (
         <>
+            <Helmet>
+                <title>HubPoint - One link to share all your social media and gaming handles</title>
+                <meta name="description" content="HubPoint is easiest way to view anyone across various social medias. Use your HubLink or QR Code to share all your social media handles in one go" />
+                <link rel='canonical' href='https://hubpoint/home' />
+                <meta name="keywords" content="FaceBook, Instagram, Snapchat, Twitter, Linkedin, Youtube, Call of Duty, Clash og Clans, Pokemon Go, PUBG, Fortnite, Minecraft, Free Fire, QR Code, Social Media, Social, Link, Username, Followers, Following, Friends" />
+            </Helmet>
+
             <Container mb='55px' p='0'>
                 {data?.pages.map((page, i) => {
                     return page.users.map((user, index) => {
