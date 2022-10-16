@@ -24,14 +24,14 @@ const Index = () => {
                     <Flex flexDirection='column' justifyContent='center' alignItems='center' lineHeight='normal'>
                         <Heading as='h3' size='xl' color='#313131'>Find account on</Heading>
                         <Heading as='h3' size='xl'>
-                            Account<span style={{ color: '#246bfd' }}>Hub</span>
+                            Hub<span style={{ color: '#246bfd' }}>Point</span>
                         </Heading>
                         <Box color='#696868' mt='10px'>
-                            Tired of giving and finding different account for one person on different platforms.
+                            Tired of giving and finding different account for one person on different platforms?
                             <span style={{ fontWeight: 'bold' }}> Not anymore</span>
                         </Box>
                         <Box w='100%' mb='100px'>
-                            <Button as={Link} to='/home' borderRadius='100px' bg='#246bfd' w='100%' color='#fff' mt='20px' _hover={{ color: '#000', bg: '#fff', border: '1px solid black' }}>Explore</Button>
+                            <Button as={Link} to='/info' borderRadius='100px' bg='#246bfd' w='100%' color='#fff' mt='20px' _hover={{ color: '#000', bg: '#fff', border: '1px solid black' }}>Explore</Button>
                         </Box>
                     </Flex>
                 </Flex>

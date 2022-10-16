@@ -1,15 +1,15 @@
 import { Box, Flex, Icon, useToast } from '@chakra-ui/react';
 import { Files, Facebook, Instagram, Twitter, Linkedin, Snapchat, Youtube, Controller } from 'react-bootstrap-icons';
 import React from 'react';
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 const CardAccount = ({ accounts }) => {
     const toast = useToast();
 
-    const handleCopy = (username) => {
-        navigator.clipboard.writeText(username);
+    const copyAlert = () => {
         toast({
             position: 'top',
-            title: 'Username copied!',
+            title: 'Link copied!',
             status: 'success',
             duration: 3000,
             isClosable: true,
@@ -48,21 +48,22 @@ const CardAccount = ({ accounts }) => {
                                     }
                                     <Box>{account.accountName}</Box>
                                 </Flex>
-                                <Flex
-                                    border='1px solid #9e9e9e'
-                                    bg='#EEEFF2'
-                                    flexWrap='wrap'
-                                    fontSize='1rem'
-                                    w='100%'
-                                    borderRadius='5px'
-                                    justifyContent='space-between'
-                                    p='5px 10px'
-                                    alignItems='center'
-                                    onClick={() => handleCopy(account.accountUsername)}
-                                >
-                                    <Flex>{account.accountUsername}</Flex>
-                                    <Icon as={Files} cursor='pointer' />
-                                </Flex>
+                                <CopyToClipboard onCopy={copyAlert} text={account.accountUsername}>
+                                    <Flex
+                                        border='1px solid #9e9e9e'
+                                        bg='#EEEFF2'
+                                        flexWrap='wrap'
+                                        fontSize='1rem'
+                                        w='100%'
+                                        borderRadius='5px'
+                                        justifyContent='space-between'
+                                        p='5px 10px'
+                                        alignItems='center'
+                                    >
+                                        <Flex>{account.accountUsername}</Flex>
+                                        <Icon as={Files} cursor='pointer' />
+                                    </Flex>
+                                </CopyToClipboard>
                             </Flex>
                         }
                     </Box>

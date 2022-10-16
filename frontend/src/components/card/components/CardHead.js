@@ -4,27 +4,29 @@ import { ShareFill, XCircleFill } from 'react-bootstrap-icons';
 import { Helmet } from 'react-helmet-async';
 import ShareImage from '../../../public/images/icon/share-img.png';
 import WhatsAppImage from '../../../public/images/icon/whatsapp-img.png';
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 const CardHead = ({ name, username, photo }) => {
     const { isOpen: isDrawerOpen, onOpen: OpenDrawer, onClose: closeDrawer } = useDisclosure();
-    const [link, setLink] = useState('');
+    const [whatsappLink, setWhatsappLink] = useState('');
     const toast = useToast();
+    let link = null;
+
+    if (process.env.REACT_APP_ENV === 'production') {
+        link = `https://hubpoint.in/user/${username}`
+    } else {
+        link = `https://hubpoint.in/user/${username}`
+    }
 
     const handleShare = () => {
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-            setLink(`https://api.whatsapp.com/send?phone=&text=https://hubpoint.in/user/${username}`)
+            setWhatsappLink(`https://api.whatsapp.com/send?phone=&text=https://hubpoint.in/user/${username}`)
         } else {
-            setLink(`https://web.whatsapp.com/send?phone=&text=https://hubpoint.in/user/${username}`)
+            setWhatsappLink(`https://web.whatsapp.com/send?phone=&text=https://hubpoint.in/user/${username}`)
         }
     }
 
-    const handleCopy = (username) => {
-        if (process.env.REACT_APP_ENV === 'production') {
-            navigator.clipboard.writeText(`https://hubpoint.in/user/${username}`);
-        } else {
-            navigator.clipboard.writeText(`http://localhost:5000/user/${username}`);
-        }
-
+    const copyAlert = () => {
         toast({
             position: 'top',
             title: 'Link copied!',
@@ -42,7 +44,7 @@ const CardHead = ({ name, username, photo }) => {
                 <link rel='canonical' href={link} />
                 <meta name="keywords" content="FaceBook, Instagram, Snapchat, Twitter, Linkedin, Youtube, Call of Duty, Clash og Clans, Pokemon Go, PUBG, Fortnite, Minecraft, Free Fire, QR Code, Social Media, Social, Link, Username, Followers, Following, Friends" />
             </Helmet>
-            
+
             {/* Drawer */}
             <Drawer placement='bottom' onClose={closeDrawer} isOpen={isDrawerOpen}>
                 <DrawerOverlay />
@@ -66,7 +68,7 @@ const CardHead = ({ name, username, photo }) => {
                         </Flex>
                         {/* Body */}
                         <Box p='10px'>
-                            <a href={link} target='_blank' rel="noreferrer" className='avoid-focus'>
+                            <a href={whatsappLink} target='_blank' rel="noreferrer" className='avoid-focus'>
                                 <Box as={Image} src={WhatsAppImage} boxSize='45px' onClick={handleShare} />
                                 <Box fontSize='12px'>Whatsapp</Box>
                             </a>
@@ -79,7 +81,9 @@ const CardHead = ({ name, username, photo }) => {
                 <Box as={Image} src={photo} boxSize='90px' borderRadius='50%' objectFit='cover' alt='profile photo' />
                 <Box fontWeight='bold' fontSize='1.4rem'>{name}</Box>
                 <Flex alignItems='center' flexWrap='wrap'>
-                    <Box fontWeight='bold' cursor='pointer' fontSize='1rem' mr='6px' overflow='auto' onClick={() => handleCopy(username)}>{username}</Box>
+                    <CopyToClipboard onCopy={copyAlert} text={link}>
+                        <Box fontWeight='bold' cursor='pointer' fontSize='1rem' mr='6px' overflow='auto'>{username}</Box>
+                    </CopyToClipboard>
                     <Icon as={ShareFill} cursor='pointer' onClick={OpenDrawer} />
                 </Flex>
             </Flex>

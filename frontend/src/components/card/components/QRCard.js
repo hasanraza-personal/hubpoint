@@ -3,12 +3,18 @@ import QRCode from 'qrcode';
 import { Box, Button, Flex, Image, Modal, ModalContent, ModalOverlay, useDisclosure, useToast } from '@chakra-ui/react';
 import QRImage from '../../../public/images/svg/qr-code.svg';
 import { Link } from 'react-router-dom';
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 const QRCard = ({ name, username, photo, account }) => {
     const { isOpen: isModalOpen, onOpen: openModal, onClose: closeModal } = useDisclosure();
-    const url = `https://hubpoint.in/user/${username}`
     const [imageQR, setImageQR] = useState();
     const toast = useToast();
+
+    if (process.env.REACT_APP_ENV === 'production') {
+        var url = `https://hubpoint.in/user/${username}`
+    } else {
+        var url = `https://hubpoint.in/user/${username}`
+    }
 
     const generateQRCode = () => {
         // Generate QRCode
@@ -22,13 +28,7 @@ const QRCard = ({ name, username, photo, account }) => {
             })
     }
 
-    const handleCopy = (username) => {
-        if (process.env.REACT_APP_ENV === 'production') {
-            navigator.clipboard.writeText(`https://hubpoint.in/user/${username}`);
-        } else {
-            navigator.clipboard.writeText(`http://localhost:5000/user/${username}`);
-        }
-        
+    const copyAlert = () => {
         toast({
             position: 'top',
             title: 'Link copied!',
@@ -37,6 +37,7 @@ const QRCard = ({ name, username, photo, account }) => {
             isClosable: true,
         });
     }
+
 
     useEffect(() => {
         generateQRCode();
@@ -50,12 +51,14 @@ const QRCard = ({ name, username, photo, account }) => {
                 <ModalOverlay />
                 <ModalContent bg='#fff' p='20px'>
                     <Flex alignItems='center' flexDirection='column'>
-                        <Image src={photo} boxSize='100px' borderRadius='50%' />
+                        <Image src={photo} boxSize='100px' borderRadius='50%' objectFit='cover' />
                         <Flex flexDirection='column' alignItems='center' lineHeight='normal' mt='10px'>
                             <Box fontWeight='bold' fontSize='20px'>{name}</Box>
                             <Flex gap='5px'>
                                 <Box>{username}</Box>
-                                <Box color='#246bfd' cursor='pointer' onClick={() => handleCopy(username)}>Copy</Box>
+                                <CopyToClipboard onCopy={copyAlert} text={url}>
+                                    <Box color='#246bfd' cursor='pointer'>Copy</Box>
+                                </CopyToClipboard>
                             </Flex>
                         </Flex>
                     </Flex>
