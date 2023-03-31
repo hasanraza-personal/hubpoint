@@ -96,6 +96,8 @@ router.post('/signup', [
         // Copy file from one folder to another
         fs.copyFile(avatarPath, savePath, (err) => {
             if (err) {
+                console.log('err: ', err);
+                success = false;
                 return res.status(400).json({ success, error: 'Something went wrong while copying. Please try again' });
             }
         });
