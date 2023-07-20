@@ -3,9 +3,27 @@ const app = express();
 const dotenv = require('dotenv');
 const path = require('path');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 dotenv.config();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
+
+const allowedOrigins = [
+    'http://localhost:3000',
+    'https://hubpoint.in',
+    // 'https://www.googleapis.com'
+]
+const corsOptions = {
+    origin: "*"
+    // origin: (origin, callback) => {
+    //     if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+    //         callback(null, true)
+    //     } else {
+    //         callback(new Error('Not allowed by CORS'))
+    //     }
+    // }
+};
+app.use(cors(corsOptions));
 
 let mongoURI = ''
 if (process.env.APP_ENV === 'production') {

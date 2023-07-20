@@ -21,9 +21,10 @@ const Home = () => {
                     'Content-Type': 'application/json',
                 },
             })
+            console.log('response.data: ', response);
             return response.data;
         } catch (err) {
-            console.log('err: ', err);
+            console.log('error: ', err);
         }
     }
 

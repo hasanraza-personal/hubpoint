@@ -72,7 +72,7 @@ router.post('/signup', [
     let username = req.body.username.split(" ").join("");
     let user = await userModel.findOne({ username }).count();
 
-    if(user > 0){
+    if (user > 0) {
         return res.status(400).json({ success, error: 'Username already exist' });
     }
 
