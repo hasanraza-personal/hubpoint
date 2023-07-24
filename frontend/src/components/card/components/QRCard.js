@@ -9,11 +9,12 @@ const QRCard = ({ name, username, photo, account }) => {
     const { isOpen: isModalOpen, onOpen: openModal, onClose: closeModal } = useDisclosure();
     const [imageQR, setImageQR] = useState();
     const toast = useToast();
+    var url;
 
     if (process.env.REACT_APP_ENV === 'production') {
-        var url = `https://hubpoint.in/user/${username}`
+        url = `https://hubpoint.in/user/${username}`
     } else {
-        var url = `https://hubpoint.in/user/${username}`
+        url = `http://localhost:3000/user/${username}`
     }
 
     const generateQRCode = () => {
@@ -42,7 +43,7 @@ const QRCard = ({ name, username, photo, account }) => {
     useEffect(() => {
         generateQRCode();
         // eslint-disable-next-line
-    }, [])
+    }, [username])
 
     return (
         <>

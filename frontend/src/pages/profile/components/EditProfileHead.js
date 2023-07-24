@@ -192,7 +192,7 @@ const EditProfileHead = () => {
                                     <Image boxSize='100px' borderRadius='50%' name='photo' src={image} objectFit='cover' />
                                 </Box>
                                 <Box ml='20px'>
-                                    <Input type='file' name='photo' className='uploader-input' onChange={changeUserPhoto} />
+                                    <Input type='file' name='photo' accept="image/*" className='uploader-input' onChange={changeUserPhoto} />
                                     <Flex justifyContent='center' alignItems='center' className='uploader-mask'>
                                         <Image src={FileUploadImage} alt='upload' className='upload-icon' />
                                     </Flex>

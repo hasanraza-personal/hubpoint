@@ -15,7 +15,7 @@ const Index = () => {
                 <link rel='canonical' href='https://hubpoint/' />
                 <meta name="keywords" content="FaceBook, Instagram, Snapchat, Twitter, Linkedin, Youtube, Call of Duty, Clash og Clans, Pokemon Go, PUBG, Fortnite, Minecraft, Free Fire, QR Code, Social Media, Social, Link, Username, Followers, Following, Friends" />
             </Helmet>
-            
+
             <Container shadow='xs' bg='#fff' mt='1px' height='calc(100vh - 55px)'>
                 <Flex justifyContent='center' pt={mobileScreen && '20px'}>
                     <Image src={IndexImage} alt='Index image' boxSize={mobileScreen ? '200px' : '400px'} />
@@ -31,7 +31,7 @@ const Index = () => {
                             <span style={{ fontWeight: 'bold' }}> Not anymore</span>
                         </Box>
                         <Box w='100%' mb='100px'>
-                            <Button as={Link} to='/info' borderRadius='100px' bg='#246bfd' w='100%' color='#fff' mt='20px' _hover={{ color: '#000', bg: '#fff', border: '1px solid black' }}>Explore</Button>
+                            <Button as={Link} to='/home' borderRadius='100px' bg='#246bfd' w='100%' color='#fff' mt='20px' _hover={{ color: '#000', bg: '#fff', border: '1px solid black' }}>Explore</Button>
                         </Box>
                     </Flex>
                 </Flex>

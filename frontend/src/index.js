@@ -13,8 +13,8 @@ import './public/fonts/SFPro.ttf';
 import { QueryClientProvider, QueryClient } from "react-query";
 import axios from 'axios';
 
-// axios.defaults.baseURL = "http://localhost:5000";
-axios.defaults.baseURL = "https://hubpoint.in";
+axios.defaults.baseURL = "http://localhost:5000";
+// axios.defaults.baseURL = "https://hubpoint.in";
 
 const queryClient = new QueryClient();
 
