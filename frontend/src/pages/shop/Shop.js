@@ -47,6 +47,7 @@ const Shop = () => {
         if (observer.current) observer.current.disconnect()
         observer.current = new IntersectionObserver(entries => {
             if (entries[0].isIntersecting && hasNextPage) {
+                console.log("Hello");
                 fetchNextPage();
             }
         })
@@ -62,7 +63,7 @@ const Shop = () => {
                 <link rel='canonical' href='/shop' />
                 <meta name="keywords" content="Amazon, Flipcart, DigitalOcean, Hostinger, Clothes, Hosting, Server, Domain, Diwali, Books, Clothes" />
             </Helmet>
-            
+
             <Container mt='5px' mb='55px'>
                 {user?.username === 'hubpoint_world' && <AddProduct refetch={refetch} />}
 

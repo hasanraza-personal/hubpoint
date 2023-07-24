@@ -34,7 +34,11 @@ const EditProfileHead = () => {
     }
 
     const onChange = (e) => {
-        setCredentials({ ...credentials, [e.target.name]: e.target.value })
+        if (e.target.name === 'username') {
+            setCredentials({ ...credentials, [e.target.name]: e.target.value.toLowerCase().split(" ").join("") });
+        } else {
+            setCredentials({ ...credentials, [e.target.name]: e.target.value })
+        }
     }
 
     const changeAlert = () => {
@@ -46,7 +50,7 @@ const EditProfileHead = () => {
                 'your QR Code nad link will not be validated anymore.');
             setAlertLButton(<Button w='48%' ref={cancelAlertRef} onClick={closeAlert} _focusVisible={{ outline: 'none' }}>Cancel</Button>);
             setAlertRButton(<Button w='48%' colorScheme='red' onClick={() => handleSubmit()}>Continue</Button>);
-        }else{
+        } else {
             handleSubmit();
             return;
         }

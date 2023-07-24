@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
     }
 
     try {
-        let users = await userModel.find().select('-accounts').sort({ createdAt: -1 }).limit(limit).skip(startIndex);
+        let users = await userModel.find({ $and: [{ isLocked: false }, { isBlock: false }, { isPublic: true }] }).select('-accounts').sort({ createdAt: -1 }).limit(limit).skip(startIndex);
         success = true;
         res.json({ success, users, totalPages });
     } catch (error) {
