@@ -1,12 +1,14 @@
 import { Container, Flex, CircularProgress } from '@chakra-ui/react';
-import React, { useCallback, useEffect, useRef } from 'react'
+import React, { useCallback, useContext, useEffect, useRef } from 'react'
 import CardBottom from '../../components/card/components/CardBottom';
 import CardHead from '../../components/card/components/CardHead';
 import { useInfiniteQuery } from 'react-query';
 import axios from 'axios';
 import { Helmet } from 'react-helmet-async';
+import { UserContext } from '../../context/UserContext';
 
 const Home = () => {
+    const { globalusername } = useContext(UserContext);
     useEffect(() => {
         window.scrollTo(0, sessionStorage.getItem('position'))
     }, [])
@@ -64,7 +66,7 @@ const Home = () => {
 
             <Container mb='55px' p='0'>
                 {data?.pages.map((page) => (
-                    page.users.map((user, index) => (
+                    page.users.filter((user) => globalusername !== user.username).map((user, index) => (
                         <Container key={index} ref={page.users.length === index + 1 ? lastBookElementRef : null} p='5px'>
                             <Container shadow='xs' bg='#fff' mt='5px' px='15px' py='5px' borderRadius='5px'>
                                 <CardHead name={user.name} username={user.username} photo={user.photo} />

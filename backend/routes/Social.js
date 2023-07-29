@@ -42,7 +42,8 @@ router.post('/updatesocialaccount', [
         accountName: 'Facebook',
         accountIcon: 'Facebook',
         fieldname: 'facebook',
-        accountUsername: req.body.facebook
+        accountUsername: req.body.facebook,
+        accountLink: `https://www.facebook.com/${req.body.facebook}`
     })
 
     // Instagram
@@ -50,7 +51,8 @@ router.post('/updatesocialaccount', [
         accountName: 'Instagram',
         accountIcon: 'Instagram',
         fieldname: 'instagram',
-        accountUsername: req.body.instagram
+        accountUsername: req.body.instagram,
+        accountLink: `https://instagram.com/${req.body.instagram}`
     })
 
     // Snapchat
@@ -58,7 +60,8 @@ router.post('/updatesocialaccount', [
         accountName: 'Snapchat',
         accountIcon: 'Snapchat',
         fieldname: 'snapchat',
-        accountUsername: req.body.snapchat
+        accountUsername: req.body.snapchat,
+        accountLink: `https://www.snapchat.com/add/${req.body.snapchat}`
     })
 
     // Twitter
@@ -66,7 +69,8 @@ router.post('/updatesocialaccount', [
         accountName: 'Twitter',
         accountIcon: 'Twitter',
         fieldname: 'twitter',
-        accountUsername: req.body.twitter
+        accountUsername: req.body.twitter,
+        accountLink: `https://twitter.com/${req.body.twitter}`
     })
 
     // Linkedin
@@ -74,7 +78,8 @@ router.post('/updatesocialaccount', [
         accountName: 'Linkedin',
         accountIcon: 'Linkedin',
         fieldname: 'linkedin',
-        accountUsername: req.body.linkedin
+        accountUsername: req.body.linkedin,
+        accountLink: `https://www.linkedin.com/in/${req.body.linkedin}`
     })
 
     // Youtube
@@ -82,7 +87,8 @@ router.post('/updatesocialaccount', [
         accountName: 'Youtube',
         accountIcon: 'Youtube',
         fieldname: 'youtube',
-        accountUsername: req.body.youtube
+        accountUsername: req.body.youtube,
+        accountLink: `https://www.youtube.com/${req.body.youtube}`
     })
 
     // coc

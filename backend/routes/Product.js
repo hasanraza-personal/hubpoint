@@ -26,6 +26,7 @@ router.post('/addproduct', async (req, res) => {
     form.parse(req, async (err, fields, files) => {
         // Check if user has selected photo
         if (files.photo) {
+            // console.log('files.photo: ', files.photo);
             let imgTypes = ['image/jpeg', 'image/jpg', 'image/png'];
             // Return -1 of index of array in string not found in array
             if (imgTypes.indexOf(files.photo.mimetype) === -1) {
@@ -127,7 +128,7 @@ router.get('/', async (req, res) => {
     }
 
     try {
-        let products = await productModel.find().sort({ createdAt : -1 }).limit(limit).skip(startIndex);
+        let products = await productModel.find().sort({ createdAt: -1 }).limit(limit).skip(startIndex);
         success = true;
         res.json({ success, products, totalPages });
     } catch (error) {

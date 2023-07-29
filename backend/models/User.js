@@ -39,6 +39,9 @@ const UserSchema = new mongoose.Schema({
             accountUsername: {
                 type: String
             },
+            accountLink: {
+                type: String
+            },
         }
     ],
     isPublic: {
