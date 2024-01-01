@@ -1,0 +1,754 @@
+[
+  {
+    "_id": {
+      "$oid": "64b9733d6059e3984d97de26"
+    },
+    "productName": "Do It Today",
+    "productDesc": "Overcome procrastination, improve productivity and achieve more meaningful things [Paperback] Foroux, Darius",
+    "productLink": "https://amzn.to/46Xx9D1",
+    "productPhoto": "https://hubpoint.me/images/product/1689875261770.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T17:47:41.778Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T17:47:41.778Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b974076059e3984d97de48"
+    },
+    "productName": "Chanakya His Teachings And Advice",
+    "productDesc": "Chanakya was a political strategist, statesman, teacher, and philosopher. He was responsible for the founding of the Mauryan Empire, one of the largest empires of ancient India.",
+    "productLink": "https://amzn.to/44wnxOb",
+    "productPhoto": "https://hubpoint.me/images/product/1689875463480.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T17:51:03.485Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T17:51:03.485Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b974636059e3984d97de5e"
+    },
+    "productName": "Don't Believe Everything You Think",
+    "productDesc": "\"Don't Believe Everything You Think\" is a practical guide to help readers overcome negative thought patterns and live a more fulfilling life.",
+    "productLink": "https://amzn.to/44TyuJn",
+    "productPhoto": "https://hubpoint.me/images/product/1689875555600.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T17:52:35.612Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T17:52:35.612Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b975086059e3984d97de80"
+    },
+    "productName": "Think Straight",
+    "productDesc": "Change your thoughts, Change your life Foroux, Darius",
+    "productLink": "https://amzn.to/3Y7Pqtt",
+    "productPhoto": "https://hubpoint.me/images/product/1689875720852.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T17:55:20.912Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T17:55:20.912Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b975976059e3984d97de92"
+    },
+    "productName": "DELL Battery",
+    "productDesc": "DELL Original 11.4V 3C 42WHR BATTERY-3500mAH Lith SDI New (WDX0R) INSPIRON 13 5368 5378 15 5565 5567 ",
+    "productLink": "https://amzn.to/3NSQfS4",
+    "productPhoto": "https://hubpoint.me/images/product/1689875863122.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T17:57:43.126Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T17:57:43.126Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b9760d6059e3984d97dea4"
+    },
+    "productName": "Dell Charger",
+    "productDesc": "UPBRIGHT® Power Cable & Dell Inspiron 13 14 15 Laptop Adapter Charger 65w 19.5V 3.34A Pin 4.5 * 3.0mm (La65Ns2-01/0G6J41/Mgjn9) Fit for Inspiron 5000 7000 Series,3147 5558 5755,Latitude 3490Mfg-Black",
+    "productLink": "https://amzn.to/43B3Kfg",
+    "productPhoto": "https://hubpoint.me/images/product/1689875981261.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T17:59:41.266Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T17:59:41.266Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b9768d6059e3984d97debe"
+    },
+    "productName": "DELL Keyboard",
+    "productDesc": "SURFIX Laptop Keyboard Compatible for Dell Inspiron 15 3000 5000 3541 3542 3543 3567 5542 3550 5545 5547 3551 3552 3559 3565 3567 3551 3558 5566 (Without Backlite) ",
+    "productLink": "https://amzn.to/3K5xqtY",
+    "productPhoto": "https://hubpoint.me/images/product/1689876109885.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T18:01:49.898Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T18:01:49.898Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b976eb6059e3984d97ded8"
+    },
+    "productName": "Keyboard and Mouse",
+    "productDesc": "Lenovo 510 Wireless Keyboard and Mouse Set, 2.4 GHz Nano USB Receiver, Full Size, Island Key Design, Left or Right Hand, 1200 DPI Optical Mouse, GX30N81775, Black ",
+    "productLink": "https://amzn.to/3Q4EavO",
+    "productPhoto": "https://hubpoint.me/images/product/1689876203993.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T18:03:24.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T18:03:24.000Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b977546059e3984d97def2"
+    },
+    "productName": "Screen Cleaner",
+    "productDesc": "Storite 2 Pack Screen Cleaner Kit - Best for LED & LCD TV, Computer Monitor, Laptop, and Other Screens (100 ml + 100 ml)",
+    "productLink": "https://amzn.to/3pZn34c",
+    "productPhoto": "https://hubpoint.me/images/product/1689876308211.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T18:05:08.216Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T18:05:08.216Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b977b36059e3984d97df0c"
+    },
+    "productName": "JBL Headphone",
+    "productDesc": "JBL Tune 760NC, Wireless Over Ear Active Noise Cancellation Headphones with Mic, up to 50 Hours Playtime, Pure Bass, Dual Pairing, AUX & Voice Assistant Support for Mobile Phones (Black) ",
+    "productLink": "https://amzn.to/3O3zWSA",
+    "productPhoto": "https://hubpoint.me/images/product/1689876403109.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T18:06:43.154Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T18:06:43.154Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b9784b6059e3984d97df2c"
+    },
+    "productName": "The Monk Who Sold is Ferrari + Who Will Cry When You Will Die",
+    "productDesc": "Robin Sharma is one of the world's premier speakers on Leadership and Personal Mastery, recently named one of the World's Top Leadership Gurus.",
+    "productLink": "https://amzn.to/470YBzR",
+    "productPhoto": "https://hubpoint.me/images/product/1689876555206.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T18:09:15.211Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T18:09:15.211Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b978946059e3984d97df4e"
+    },
+    "productName": "JBL Earphone",
+    "productDesc": "JBL C100SI Wired In Ear Headphones with Mic, JBL Pure Bass Sound, One Button Multi-function Remote, Angled Buds for Comfort fit (Black)",
+    "productLink": "https://amzn.to/3Q5Ijjs",
+    "productPhoto": "https://hubpoint.me/images/product/1689876628641.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T18:10:28.644Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T18:10:28.644Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b9790f6059e3984d97df70"
+    },
+    "productName": "Laptop Bag",
+    "productDesc": "(India) Dell EcoLoop Urban Backpack - Gray - CP4523G ",
+    "productLink": "https://amzn.to/3OkcUIu",
+    "productPhoto": "https://hubpoint.me/images/product/1689876751686.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T18:12:31.689Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T18:12:31.689Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b97c816059e3984d97dfa2"
+    },
+    "productName": "Umbrella",
+    "productDesc": "UZQIC Portable Travel Umbrella - Umbrellas for Rain Windproof, Strong Compact & Easy Auto Open/Close Button for Single Use Umbrella for Wind and Rain, Perfect Car Umbrella ",
+    "productLink": "https://amzn.to/3OovkrR",
+    "productPhoto": "https://hubpoint.me/images/product/1689877633578.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T18:27:13.622Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T18:27:13.622Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b97cc76059e3984d97dfc4"
+    },
+    "productName": "Bucket",
+    "productDesc": "Cello Plastic Frosty Bucket Delux , Violet, 5 Litre ",
+    "productLink": "https://amzn.to/3Q1ZiTt",
+    "productPhoto": "https://hubpoint.me/images/product/1689877703441.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T18:28:23.445Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T18:28:23.445Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b97d316059e3984d97dfe6"
+    },
+    "productName": "Sandal",
+    "productDesc": "Adidas Men's Alpinoz Sport Sandal ",
+    "productLink": "https://amzn.to/3XWUa5b",
+    "productPhoto": "https://hubpoint.me/images/product/1689877809577.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T18:30:09.583Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T18:30:09.583Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b97d836059e3984d97e008"
+    },
+    "productName": "Clogs",
+    "productDesc": "Red Tape Men's Rover Comfortable Clogs || Sandals with Adjustable Back Strap for Men ",
+    "productLink": "https://amzn.to/43C7EV7",
+    "productPhoto": "https://hubpoint.me/images/product/1689877891474.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T18:31:31.483Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T18:31:31.483Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b97e236059e3984d97e049"
+    },
+    "productName": "Raincoat",
+    "productDesc": "Bulfyss Raincoat 100% Waterproof Polyester Reversible Double Layer Rain Coat For Men Bike with Pants, Adjustable Hood, Inner Mobile Pocket and Storage Bag ",
+    "productLink": "https://amzn.to/3K7sgxo",
+    "productPhoto": "https://hubpoint.me/images/product/1689878051325.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T18:34:11.330Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T18:34:11.330Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b97e7a6059e3984d97e06b"
+    },
+    "productName": "Raincoat",
+    "productDesc": "FabSeasons Women's Raincoat ",
+    "productLink": "https://amzn.to/3K6QeJl",
+    "productPhoto": "https://hubpoint.me/images/product/1689878138179.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T18:35:38.184Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T18:35:38.184Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b97eda6059e3984d97e09f"
+    },
+    "productName": "Writing Pad",
+    "productDesc": "pranali enterprise Paper Clipboard Drawing Writing Pad, Horizontal Hardboard Exam Board for Kids/Students Wood Exam Pad, Examination Writing Pad (Wooden, 13 X 9 Inch) (2 pcs) Green ",
+    "productLink": "pranali enterprise Paper Clipboard Drawing Writing Pad, Horizontal Hardboard Exam Board for Kids/Students Wood Exam Pad, Examination Writing Pad (Wooden, 13 X 9 Inch) (2 pcs) Green ",
+    "productPhoto": "https://hubpoint.me/images/product/1689878234619.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T18:37:14.665Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T18:37:14.665Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b97f676059e3984d97e0c9"
+    },
+    "productName": "Laptop Table",
+    "productDesc": "CELLBELL Multipurpose Laptop Table (Black) ",
+    "productLink": "https://amzn.to/43B7xJw",
+    "productPhoto": "https://hubpoint.me/images/product/1689878375765.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T18:39:35.772Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T18:39:35.772Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b97fbf6059e3984d97e0fd"
+    },
+    "productName": "Laptop Desk",
+    "productDesc": "MASTERFILL Laptop Bed Tray Table, Laptop Desk for Bed,Foldable Lap Desk Stand Notebook Desk Adjustable Laptop Table for Bed Portable Notebook Bed Tray Lap Tablet with Cup Holder (Black) ",
+    "productLink": "https://amzn.to/3Dt8E33",
+    "productPhoto": "https://hubpoint.me/images/product/1689878463194.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T18:41:03.250Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T18:41:03.250Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b9804e6059e3984d97e13b"
+    },
+    "productName": "The Richest Man In Babylon",
+    "productDesc": "If you have a lean purse and are looking for financial wisdom, you?ve picked the perfect book!?A PART OF ALL YOU EARN IS YOURS TO KEEP.?From the importance of savings to the essentials on how to become wealthy, this collection of famous Babylonian parables imparts timeless financial wisdom.",
+    "productLink": "https://amzn.to/3XWVhSp",
+    "productPhoto": "https://hubpoint.me/images/product/1689878606234.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T18:43:26.238Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T18:43:26.238Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b981b46059e3984d97e1d5"
+    },
+    "productName": "Water Bottle",
+    "productDesc": "SKYTONE Sports Water Bottle, 1L (32oz) Leak Proof & BPA Free Tritan Plastic Reusable Water Bottles, Ideal Gift for Travel Gym fitness Running School With Silicon Grip (Grey) ",
+    "productLink": "https://amzn.to/3OmCnkJ",
+    "productPhoto": "https://hubpoint.me/images/product/1689878964639.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T18:49:24.654Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T18:49:24.654Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b982016059e3984d97e1f7"
+    },
+    "productName": "Stainless Steel Water Bottle",
+    "productDesc": "Speedex Stainless Steel Water Bottle 1 litre, Water Bottles For Fridge, School,Gym,Home,office,Boys, Girls, Kids, Leak Proof (1000 ML Printed Bottle,Enjoy D Journey, Sipper Cap)",
+    "productLink": "https://amzn.to/3rBnuC3",
+    "productPhoto": "https://hubpoint.me/images/product/1689879041701.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T18:50:41.706Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T18:50:41.706Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b982576059e3984d97e219"
+    },
+    "productName": "Mobile Stand",
+    "productDesc": "WeCool Adjustable Mobile Phone Foldable Holder Stand Dock Tabletop Mount for All Smartphones, Tablets, Kindle, iPad, Adjustable Mobile Stand, Black, Aluminium ",
+    "productLink": "https://amzn.to/43xNQlJ",
+    "productPhoto": "https://hubpoint.me/images/product/1689879127098.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T18:52:07.107Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T18:52:07.107Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b982b06059e3984d97e261"
+    },
+    "productName": "HDMI Cable",
+    "productDesc": "Ambrane 1.5m High Speed HDMI Cable Supports 3D, 4K, ARC & CEC Extension, Gold Plated Connectors, Compatible with HDMI-Enabled TV, Set Top Box, Blu-ray, Gaming Consoles (AHDMS-15 Black) ",
+    "productLink": "https://amzn.to/46VG9Zy",
+    "productPhoto": "https://hubpoint.me/images/product/1689879216499.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T18:53:36.505Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T18:53:36.505Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b9875d6059e3984d97e2b7"
+    },
+    "productName": "Pendrive",
+    "productDesc": "SanDisk Ultra Flair 64GB USB 3.0 Pen Drive, Multicolor ",
+    "productLink": "https://amzn.to/43ukHYN",
+    "productPhoto": "https://hubpoint.me/images/product/1689880413037.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T19:13:33.047Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T19:13:33.047Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b989016059e3984d97e345"
+    },
+    "productName": "SSD",
+    "productDesc": "Crucial BX500 240GB 3D NAND SATA 6.35 cm (2.5-inch) SSD (CT240BX500SSD1) ",
+    "productLink": "https://amzn.to/3rDFj3D",
+    "productPhoto": "https://hubpoint.me/images/product/1689880833576.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T19:20:33.580Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T19:20:33.580Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b9895d6059e3984d97e37f"
+    },
+    "productName": "The Rudest Book Ever",
+    "productDesc": "The Rudest Book Ever: Powerful Perspectives to Free Your Mind",
+    "productLink": "https://amzn.to/3OnyGeu",
+    "productPhoto": "https://hubpoint.me/images/product/1689880925708.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T19:22:05.719Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T19:22:05.719Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b989fb6059e3984d97e3b9"
+    },
+    "productName": "Redmi 12C",
+    "productDesc": "Redmi 12C (Mint Green, 4GB RAM, 64GB Storage) | High Performance Mediatek Helio G85 | Big 17cm(6.71) HD+ Display with 5000mAh(typ) Battery ",
+    "productLink": "https://amzn.to/3K6pnx6",
+    "productPhoto": "https://hubpoint.me/images/product/1689881083405.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T19:24:43.409Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T19:24:43.409Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b98a4e6059e3984d97e3f3"
+    },
+    "productName": "Samsung Galaxy M14 5G",
+    "productDesc": "Samsung Galaxy M14 5G (ICY Silver, 4GB, 128GB Storage) | 50MP Triple Cam | 6000 mAh Battery | 5nm Octa-Core Processor | Android 13 | Without Charger ",
+    "productLink": "https://amzn.to/44PPv7h",
+    "productPhoto": "https://hubpoint.me/images/product/1689881166985.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T19:26:06.989Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T19:26:06.989Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b98ac36059e3984d97e42d"
+    },
+    "productName": "Sketchers Women Shoe",
+    "productDesc": "Skechers Womens Dynamight 2.0-Soft Expression Sneaker ",
+    "productLink": "https://amzn.to/3Omst2t",
+    "productPhoto": "https://hubpoint.me/images/product/1689881283384.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T19:28:03.389Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T19:28:03.389Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b98b076059e3984d97e467"
+    },
+    "productName": "Skechers Men's Shoe",
+    "productDesc": "Skechers Men's Ultra Flex 2.0-Litewilde Sneakers ",
+    "productLink": "https://amzn.to/3K6UvfR",
+    "productPhoto": "https://hubpoint.me/images/product/1689881351375.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T19:29:11.378Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T19:29:11.378Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b98b726059e3984d97e4a9"
+    },
+    "productName": "Skechers Shoe Without less",
+    "productDesc": "Skechers Mens Flex Advantage 3.0-morwick Char Casual Shoe - 6 UK (7 US) (52961) ",
+    "productLink": "https://amzn.to/43ABARm",
+    "productPhoto": "https://hubpoint.me/images/product/1689881458611.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T19:30:58.615Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T19:30:58.615Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b98c046059e3984d97e50b"
+    },
+    "productName": "Football",
+    "productDesc": "WIVIA PENLOVA Football for All Ages All Grounds Grass Field Football Ball Three Layered Hand Stiched Match Ball for All School and College Groups.",
+    "productLink": "https://amzn.to/3DkJaVN",
+    "productPhoto": "https://hubpoint.me/images/product/1689881604477.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T19:33:24.481Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T19:33:24.481Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b98c936059e3984d97e54d"
+    },
+    "productName": "iPhone 13",
+    "productDesc": "Apple iPhone 13 (256 GB) - Green ",
+    "productLink": "https://amzn.to/43ABQQk",
+    "productPhoto": "https://hubpoint.me/images/product/1689881747650.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T19:35:47.655Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T19:35:47.655Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b98cf06059e3984d97e59f"
+    },
+    "productName": "iPhone Charger",
+    "productDesc": "Original iPhone 20W USB-C Power Adapter with 3.3FT Data Cable for Apple 14/14 Pro/14 Pro Max/14 Plus/13/13Pro/12/12 Pro/11/11Pro ",
+    "productLink": "https://amzn.to/43Bfo9Z",
+    "productPhoto": "https://hubpoint.me/images/product/1689881840183.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T19:37:20.186Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T19:37:20.186Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b98d396059e3984d97e5e1"
+    },
+    "productName": "Earbuds",
+    "productDesc": "Boult Audio Z40 True Wireless in Ear Earbuds with 60H Playtime, Zen™ ENC Mic, Low Latency Gaming, Type-C Fast Charging, Made in India, 10mm Rich Bass Drivers, IPX5, Bluetooth 5.3 Ear Buds TWS (Blue)",
+    "productLink": "https://amzn.to/44VeMwH",
+    "productPhoto": "https://hubpoint.me/images/product/1689881913264.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T19:38:33.268Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T19:38:33.268Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b98daf6059e3984d97e623"
+    },
+    "productName": "DELL Laptop",
+    "productDesc": "Dell Vostro 3420 Laptop, Intel i3-1115G4/8GB DDR4/256GB SSD/Windows 11+MSO'21/14.0\" (35.56cm) FHD, TÜV Rheinland Certified Comfortview Reduce Harmful Blue Light Emission/15 Month McAfee/Black/1.48kg",
+    "productLink": "https://amzn.to/46PxZSm",
+    "productPhoto": "https://hubpoint.me/images/product/1689882031206.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T19:40:31.209Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T19:40:31.209Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b98df46059e3984d97e665"
+    },
+    "productName": "MSI Laptop",
+    "productDesc": "MSI Modern 15, AMD Ryzen 5-7530U, 40CM FHD 60Hz Laptop (16GB/512GB NVMe SSD/Windows 11 Home/AMD Radeon Graphics/Classic Black/1.7Kg), B7M-071IN ",
+    "productLink": "https://amzn.to/3pZAFwf",
+    "productPhoto": "https://hubpoint.me/images/product/1689882100731.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T19:41:40.734Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T19:41:40.734Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b990996059e3984d97e6cb"
+    },
+    "productName": "3x3 Cube",
+    "productDesc": "GAN Fantasy Fantasy Speed Cube, Pack of 1, Multicolor ",
+    "productLink": "https://amzn.to/44QfawC",
+    "productPhoto": "https://hubpoint.me/images/product/1689882777677.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T19:52:57.681Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T19:52:57.681Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b990ee6059e3984d97e71d"
+    },
+    "productName": "Quick Heal | Total Security",
+    "productDesc": "Quick Heal | Total Security | 1 User | 1 Year | Email Delivery in 2 hours - no CD ",
+    "productLink": "https://amzn.to/44QhsvG",
+    "productPhoto": "https://hubpoint.me/images/product/1689882862141.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T19:54:22.151Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T19:54:22.151Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b991b16059e3984d97e783"
+    },
+    "productName": "Skybags",
+    "productDesc": "Skybags Brat Black 46 Cms Casual Backpack",
+    "productLink": "https://amzn.to/43wg5kJ",
+    "productPhoto": "https://hubpoint.me/images/product/1689883057939.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T19:57:37.944Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T19:57:37.944Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b991fb6059e3984d97e7d5"
+    },
+    "productName": "American Tourister College Bag",
+    "productDesc": "American Tourister Fizz Large Size 32 Ltrs Casual Backpack (BLACK)",
+    "productLink": "https://amzn.to/3rD30Je",
+    "productPhoto": "https://hubpoint.me/images/product/1689883131093.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T19:58:51.097Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T19:58:51.097Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b992c26059e3984d97e84f"
+    },
+    "productName": "Smart Watch",
+    "productDesc": "boAt Wave Lite Smartwatch with 1.69\" HD Display, Heart Rate & SpO2 Level Monitor, Multiple Watch Faces, Activity Tracker, Multiple Sports Modes & IP68 (Deep Blue)",
+    "productLink": "https://amzn.to/46WqZ6a",
+    "productPhoto": "https://hubpoint.me/images/product/1689883330812.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T20:02:10.863Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T20:02:10.863Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b9930d6059e3984d97e8a1"
+    },
+    "productName": "The Power of Ambition",
+    "productDesc": "The Power of Ambition: Awakening the Powerful Force Within You (Official Nightingale Conant Publication)",
+    "productLink": "https://amzn.to/45bUCiv",
+    "productPhoto": "https://hubpoint.me/images/product/1689883405847.jpeg",
+    "createdAt": {
+      "$date": "2023-07-20T20:03:25.852Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-20T20:03:25.852Z"
+    },
+    "__v": 0
+  }
+]
